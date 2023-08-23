@@ -14,12 +14,14 @@ const SearchIconContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  borderRadius: "20px",
 });
 
 const SearchInput = styled(InputBase)({
   padding: "8px",
   paddingLeft: "40px", // Adjust this value to your needs
   width: "100%",
+  borderRadius: "20px",
 });
 
 const SearchBar = () => {
