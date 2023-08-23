@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { List, ListItem, ListItemText } from "@mui/material";
 import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
 import "./Album.css";
 
