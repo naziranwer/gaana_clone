@@ -1,0 +1,110 @@
+/* HeaderComponent.css */
+
+/* Header container styles */
+.gheader {
+  background-color: #f5f5f5;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  width: 100%;
+}
+
+._inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.lt {
+  display: flex;
+}
+/* Logo styles */
+.logo {
+  display: block;
+  width: 87px;
+  height: 22px;
+  fill: #e72c30;
+}
+
+/* Navigation styles */
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.ham {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* User icon styles */
+.user_ic img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Language styles */
+.mb_lang {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.mb_lang span {
+  margin-right: 10px;
+}
+
+/* Search button styles */
+.search_inpage {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Input box styles */
+.input_box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.input_box span {
+  margin-right: 10px;
+}
+
+/* Theme button styles */
+.thm {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Plus button styles */
+.gplus {
+  display: inline-block;
+  color: #e72c30;
+  /* color: #fff; */
+  padding: 6px 15px;
+  border: 1px solid #e72c30;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+  .lg-hide {
+    display: none;
+  }
+
+  .sm-hide {
+    display: none;
+  }
+}

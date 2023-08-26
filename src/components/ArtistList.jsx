@@ -4,52 +4,52 @@ import "./Album.css"; // Import your custom CSS file for styling
 import { useNavigate } from "react-router-dom";
 import NavBar from "./Navbar";
 
-const Album = () => {
-  const [albumData, setAlbumData] = useState([]);
+const Artist = () => {
+  const [artistData, setArtistData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://academics.newtonschool.co/api/v1/music/album", {
+    fetch("https://academics.newtonschool.co/api/v1/music/artist", {
       headers: {
         projectId: "9cwb93cdi4mj",
       },
     })
       .then((response) => response.json())
-      .then((data) => setAlbumData(data))
+      .then((data) => setArtistData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  console.log("album data", albumData);
-  const albumList = albumData.data || [];
+  const artistList = artistData.data || [];
+  console.log("artists list", artistList);
 
-  console.log("album list", albumList);
-  const albumClick = (album) => {
-    navigate(`/albums/${album.title}`, { state: album });
+  const artistClick = (artist) => {
+    navigate(`/artist/${artist.name}`, { state: artist });
+    console.log("navigation for artist");
   };
   return (
     <div>
-      <h2>Album Songs</h2>
+      <h2>Artists</h2>
       <Grid container spacing={2} className="album-grid">
-        {albumList.map((album) => (
+        {artistList?.map((artist) => (
           <Grid
             item
-            key={album.id}
+            key={artist._id}
             xs={6}
             sm={4}
             md={3}
             lg={2}
-            onClick={() => albumClick(album)}
+            onClick={() => artistClick(artist)}
           >
             <Card>
               <CardMedia
                 component="img"
                 height="140"
-                image={album.image}
-                alt={album.title}
+                image={artist.image}
+                alt={artist.name}
               />
               <CardContent>
                 <Typography variant="subtitle1">
-                  {album.title.slice(0, 15)}
+                  {artist.name.slice(0, 15)}
                 </Typography>
               </CardContent>
             </Card>
@@ -60,4 +60,4 @@ const Album = () => {
   );
 };
 
-export default Album;
+export default Artist;

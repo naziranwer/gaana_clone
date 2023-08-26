@@ -5,7 +5,10 @@ import { styled } from "@mui/system";
 
 const SearchContainer = styled("div")({
   position: "relative",
+  width: "500px",
+  height: "40px",
   backgroundColor: "#fff",
+  borderRadius: "40px",
 });
 
 const SearchIconContainer = styled("div")({
@@ -14,14 +17,12 @@ const SearchIconContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  borderRadius: "20px",
 });
 
 const SearchInput = styled(InputBase)({
   padding: "8px",
-  paddingLeft: "40px", // Adjust this value to your needs
+  // paddingLeft: "40px",
   width: "100%",
-  borderRadius: "20px",
 });
 
 const SearchBar = () => {
@@ -31,7 +32,7 @@ const SearchBar = () => {
         <SearchIcon />
       </SearchIconContainer>
       <SearchInput
-        placeholder="Search..."
+        placeholder="Search Artists,Songs,Albums"
         inputProps={{ "aria-label": "search" }}
       />
     </SearchContainer>

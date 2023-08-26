@@ -19,6 +19,17 @@ export const AlbumDetails = () => {
 
   console.log("albumdetails", album);
   const albumSongs = album.songs;
+  const albumArtist = album.artists;
+
+  const artistNamesArray = albumSongs.map((song) => {
+    const artistNames = song.artist.map((art) => {
+      const matchingArtist = albumArtist.find(
+        (artistss) => artistss._id === art
+      );
+      return matchingArtist ? matchingArtist.name : null;
+    });
+    return artistNames.filter((name) => name !== null).join(", ");
+  });
 
   const handlePlayClick = (index) => {
     setCurrentSongIndex(index);
@@ -48,19 +59,13 @@ export const AlbumDetails = () => {
       <List>
         {albumSongs.map((song, index) => (
           <ListItem key={song._id}>
-            <ListItemText primary={song.title} secondary={song.artist[0]} />
-            {/* <button
-              variant="outlined"
-              onClick={() => handlePlayClick(index)}
-              color={currentSongIndex === index ? "primary" : "default"}
-            >
-              {currentSongIndex === index ? "Pause" : "Play"}
-            </button> */}
-            {/* {currentSongIndex === index && ( */}
+            <ListItemText
+              primary={song.title}
+              secondary={artistNamesArray[index]}
+            />
             <audio controls>
               <source src={song.audio_url} type="audio/mp4" />
             </audio>
-            {/* // )} */}
           </ListItem>
         ))}
       </List>
