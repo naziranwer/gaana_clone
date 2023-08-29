@@ -2,8 +2,8 @@ import React from "react";
 import "./Header.css";
 const HeaderComponent = () => {
   return (
-    <header className="gheader h_home ">
-      <div className="_inner">
+    <header className="gheader h_home " >
+      <div className="_inner" style={{ display: "flex", alignItems: "center" }}>
         <div className="lt">
           <div className="box">
             <button className="ham" aria-label="menu button">
@@ -37,12 +37,12 @@ const HeaderComponent = () => {
               </svg>
             </a>
           </div>
-          <div className="mb_lang lg-hide">
+          {/* <div className="mb_lang lg-hide">
             <div className="_lg">
               <span>Hindi,</span>
               <span>English</span>
             </div>
-            {/* SVG content */}
+            
             <svg width="10" height="17" viewBox="0 0 10 17">
               <path
                 class="svg_color"
@@ -51,9 +51,9 @@ const HeaderComponent = () => {
                 d="M1.414 0L0 1.414l7 7-7 7 1.414 1.414 8.414-8.414z"
               ></path>
             </svg>
-          </div>
-          <button className="search_inpage lg-hide" aria-label="search icon">
-            {/* SVG content */}
+          </div> */}
+          {/* <button className="search_inpage lg-hide" aria-label="search icon">
+           
             <svg width="23" height="23" viewBox="0 0 25 25">
               <path
                 class="svg_color"
@@ -62,7 +62,9 @@ const HeaderComponent = () => {
                 d="M10.5 2A6.5 6.5 0 0 1 17 8.5c0 1.6-.6 3.1-1.56 4.23l.27.27h.8l5 5-1.5 1.5-5-5v-.8l-.27-.27C13.55 14.447 12.05 15 10.5 15a6.5 6.5 0 1 1 0-13zm0 2A4.48 4.48 0 0 0 6 8.5a4.48 4.48 0 0 0 4.5 4.5A4.48 4.48 0 0 0 15 8.5 4.48 4.48 0 0 0 10.5 4z"
               ></path>
             </svg>
-          </button>
+          </button> */}
+        </div>
+        <div>
           <div className="sbox sm-hide">
             <button className="input_box">
               <span className="h_search">
@@ -80,8 +82,8 @@ const HeaderComponent = () => {
             </button>
           </div>
         </div>
-        <div className="mid lg-hide">
-          {/* SVG content */}
+        {/* <div className="mid lg-hide">
+          
           <svg width="18" height="18" viewBox="0 0 25 25">
             <path
               class="svg_color"
@@ -91,8 +93,11 @@ const HeaderComponent = () => {
             ></path>
           </svg>
           <button className="ms_btn">Search Artists, Songs, Albums</button>
-        </div>
-        <div className="rt sm-hide">
+        </div> */}
+        <div
+          className="rt sm-hide"
+          style={{ display: "flex", alignItems: "center", gap: "8px" }}
+        >
           <a
             href="/subscribe/buy-gaana-plus?udf=dw_topbar_GetGaanaPlus"
             target="_blank"

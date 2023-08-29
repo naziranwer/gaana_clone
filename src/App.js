@@ -10,15 +10,21 @@ import MusicList from "./components/MusicList";
 import Album from "./components/AlbumList";
 import { AlbumDetails } from "./components/AlbumDetails";
 import NavBar from "./components/Navbar";
-import HeaderComponent from "./components/HeaderComponent";
 import Artist from "./components/ArtistList";
 import ArtistDetails from "./components/ArtistDetails";
+import HeaderComponent from "./components/HeaderComponent";
+import ButtonList from "./components/ButtonList";
+import Row from "./components/Horizontal";
+import Horizontal from "./components/HorizontalScroll";
+import FeaturedSongs from "./components/FeaturedSongs";
+import NewRelease from "./components/NewRelease";
 // import "./App.css";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
+    console.log("Toggle the dark mode", isDarkMode);
     setIsDarkMode(!isDarkMode);
   };
 
@@ -27,6 +33,8 @@ function App() {
       mode: isDarkMode ? "dark" : "light",
     },
   });
+
+  console.log("app renders", isDarkMode);
 
   return (
     <>
@@ -44,6 +52,10 @@ function App() {
               <Route path="/albums/:albumTitle" element={<AlbumDetails />} />
               <Route path="/artist" element={<Artist />} />
               <Route path="/artist/:artistName" element={<ArtistDetails />} />
+              <Route path="/btnlist" element={<Horizontal />} />
+              <Route path="/horizontal" element={<Row />} />
+              <Route path="/featured" element={<FeaturedSongs />} />
+              <Route path="/newrelease" element={<NewRelease />} />
             </Routes>
           </Container>
         </BrowserRouter>

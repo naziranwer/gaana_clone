@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import AudioPlayer from "./AudioPlayer";
 import {
   Card,
   CardMedia,
@@ -63,9 +64,12 @@ export const AlbumDetails = () => {
               primary={song.title}
               secondary={artistNamesArray[index]}
             />
-            <audio controls>
-              <source src={song.audio_url} type="audio/mp4" />
-            </audio>
+            {song && (
+              // <audio controls>
+              //   <source src={song?.audio_url} type="audio/mp4" />
+              // </audio>
+              <AudioPlayer song={song} />
+            )}
           </ListItem>
         ))}
       </List>

@@ -5,29 +5,49 @@ import FeaturedSongs from "./FeaturedSongs";
 import MusicCard from "./MusicCard";
 import NewRelease from "./NewRelease";
 import Artist from "./ArtistList";
+import Row from "./Horizontal";
+import SlidingCaraousel from "./SlidingCaraousel";
 
 const MusicList = () => {
   const [musicData, setMusicData] = useState([]);
 
   useEffect(() => {
-    fetch("https://academics.newtonschool.co/api/v1/music/song", {
-      headers: {
-        projectId: "9cwb93cdi4mj",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setMusicData(data))
-      .catch((error) => console.error("Error fetching data:", error));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://academics.newtonschool.co/api/v1/music/song",
+          {
+            headers: {
+              projectId: "9cwb93cdi4mj",
+            },
+          }
+        );
+        const data = await response?.json();
+        setMusicData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
+
   console.log("this is music data", musicData);
   const musicList = musicData.data || [];
   console.log("this is array data", musicList);
   return (
     <div>
-      <FeaturedSongs musicData={musicData} />
-      <NewRelease musicData={musicData} />
-      {/* <MusicCard data={musicList} /> */}
-      <Artist />
+      {musicData.status === "success" ? (
+        <div>
+          <SlidingCaraousel />
+          <FeaturedSongs musicData={musicData} />
+          <NewRelease musicData={musicData} />
+
+          <Row />
+        </div>
+      ) : (
+        <div>Error in fetch</div>
+      )}
     </div>
   );
 };

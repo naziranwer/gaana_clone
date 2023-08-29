@@ -100,6 +100,7 @@ import {
   ListItemText,
   Button,
 } from "@mui/material";
+import AudioPlayer from "./AudioPlayer";
 
 const ArtistDetails = () => {
   const location = useLocation();
@@ -151,7 +152,7 @@ const ArtistDetails = () => {
             </Typography>
             <Typography variant="h3">{artist.name}</Typography>
             {/* Add more artist details here */}
-            <Typography variant="h6">{artist.description}</Typography>
+            <Typography variant="h8">{artist.description}</Typography>
           </CardContent>
         </div>
       </Card>
@@ -168,14 +169,16 @@ const ArtistDetails = () => {
                 primary={song?.title}
                 secondary={artistsNameArray}
               />
-              {song && (
-                <audio controls>
-                  <source src={song?.audio_url} type="audio/mp4" />
-                </audio>
-              )}
+              {/* {song && (
+                // <audio controls>
+                //   <source src={song?.audio_url} type="audio/mp4" />
+                // </audio>
+                <AudioPlayer song={song} />
+              )} */}
             </ListItem>
           );
         })}
+        <AudioPlayer song={songsInArtist[0]} />
       </List>
     </div>
   );

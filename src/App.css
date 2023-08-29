@@ -32,7 +32,19 @@
   width: 100%;
   padding: 0; /* Remove default padding if necessary */
 }
+/* ---------AudioPlayer CSS--------- */
 
+.audio-player-bar {
+  background-color: lightgray;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 81%;
+  z-index: 999;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
