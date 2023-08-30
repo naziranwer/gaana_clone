@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import MusicCard from "./MusicCard";
 import "../App.css";
 import Horizontal from "./HorizontalScroll";
+import { useNavigate } from "react-router-dom";
 
 const NewRelease = ({ musicData }) => {
   console.log("music data in new release", musicData);
 
   const data = musicData?.data;
   const [featured, setFeatured] = useState([]);
+  const navigate = useNavigate();
 
   const filteredData = (data) => {
     const currentDate = new Date(); // Get the current date
@@ -37,9 +39,18 @@ const NewRelease = ({ musicData }) => {
 
   console.log("data before filter", data, "data after filter", filtered);
 
+  const navigation = () => {
+    navigate("/newrelease");
+    console.log("navigation for new release");
+  };
   return (
     <>
-      <h1>New Releases</h1>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h1>New Releases</h1>
+        <span style={{ marginTop: "auto", color: "red" }} onClick={navigation}>
+          See All
+        </span>
+      </div>
       <div className="featured-container">
         {/* <MusicCard data={featured} /> */}
         <Horizontal array={featured} />

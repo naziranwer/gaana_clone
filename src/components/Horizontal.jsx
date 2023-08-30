@@ -50,10 +50,22 @@ const Row = () => {
     console.log("navigation for artist");
   };
 
+  const navigation = () => {
+    navigate("/artist");
+    console.log("navigation for new release");
+  };
   return (
     <>
       <div className="container1">
-        <h2>Featured Artists</h2>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h1>Featured Artists</h1>
+          <span
+            style={{ marginTop: "auto", color: "red" }}
+            onClick={navigation}
+          >
+            See All
+          </span>
+        </div>
         <Carousel
           swipeable={true}
           draggable={true}

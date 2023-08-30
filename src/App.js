@@ -19,7 +19,7 @@ import Horizontal from "./components/HorizontalScroll";
 import FeaturedSongs from "./components/FeaturedSongs";
 import NewRelease from "./components/NewRelease";
 import Footer from "./components/Footer";
-// import "./App.css";
+import "./App.css";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
