@@ -6,6 +6,10 @@
 /* Add a gap between carousel slides */
 .custom-carousel-item {
   padding-right: 10px; /* Adjust this value to set the desired gap */
+  /* height: 20px; */
+}
+#banner_carousel.inner.animate > li.slide {
+  margin: 5px; /* Adjust this value for the desired space */
 }
 
 @media (max-width: 768px) {

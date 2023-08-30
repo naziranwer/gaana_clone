@@ -124,7 +124,7 @@ const ArtistDetails = () => {
 
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
 
-  console.log("albumdetails", artist);
+  console.log("artistdetails", artist);
 
   const artistSongs = artist.songs;
   const albumArtist = artist.artists;

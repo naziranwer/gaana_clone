@@ -1,15 +1,16 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import "./Album.css";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1,
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1,
+    items: 2,
   },
   smartphone: {
     breakpoint: { max: 824, min: 464 },
@@ -35,7 +36,7 @@ const SlidingCaraousel = () => {
             autoPlaySpeed={2000}
             keyBoardControl={true}
             showDots={false}
-            slidesToSlide={1}
+            slidesToSlide={3}
             containerClass="carousel-container"
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px custom-carousel-item"
@@ -64,6 +65,10 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
+            </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -88,6 +93,10 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
+            </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -112,6 +121,10 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
+            </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -136,40 +149,88 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
+            </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
                 aria-label="banner images"
-                href="/playlist/gaana-dj-smashin-100"
+                href="/playlist/gaana-dj-hip-hop-now"
               >
-                <div class="LazyLoad"></div>
+                <picture>
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4q9NKLg/size_l_1646224235.webp"
+                    media="(min-width: 1420px)"
+                  />
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4q9NKLg/size_m_1646224235.webp"
+                    media="(min-width: 992px)"
+                  />
+                  <source srcset="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4q9NKLg/size_s_1646224235.webp" />
+                  <img
+                    srcset="https://a10.gaanacdn.com/images/showcase/1646224235_3308.jpg"
+                    alt="Hip Hop Now"
+                    title="Hip Hop Now"
+                  />
+                </picture>
               </a>
             </li>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
+            </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
                 aria-label="banner images"
-                href="/playlist/gaana-dj-slow-romantic-hindi"
+                href="/playlist/inhouse-dj-hits-of-salman-khan"
               >
-                <div class="LazyLoad"></div>
+                <picture>
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/R7vKX66Wmr/7vKX9Ng3mr/size_l_1693326559.webp"
+                    media="(min-width: 1420px)"
+                  />
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/R7vKX66Wmr/7vKX9Ng3mr/size_m_1693326559.webp"
+                    media="(min-width: 992px)"
+                  />
+                  <source srcset="https://a10.gaanacdn.com/gn_img/showcase/R7vKX66Wmr/7vKX9Ng3mr/size_s_1693326559.webp" />
+                  <img
+                    srcset="https://a10.gaanacdn.com/images/showcase/1693326559_13945.jpg"
+                    alt="Featuring Salman Khan"
+                    title="Featuring Salman Khan"
+                  />
+                </picture>
               </a>
             </li>
-            <li class="slide animate">
-              <a
-                class="_a default_bg"
-                aria-label="banner images"
-                href="/playlist/gaana-dj-this-singh-is-so-stylish-diljit-dosanjh"
-              >
-                <div class="LazyLoad"></div>
-              </a>
+            <li className="custom-carousel-item">
+              {/* Content between the first and second slide */}
             </li>
+
             <li class="slide animate">
               <a
                 class="_a default_bg"
                 aria-label="banner images"
-                href="/playlist/gaana-dj-chilled-out-days"
+                href="/playlist/gaana-dj-sad-songs-3"
               >
-                <div class="LazyLoad"></div>
+                <picture>
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/VdNW0Mbo5e/dNW05DXbo5/size_l_1650629912.webp"
+                    media="(min-width: 1420px)"
+                  />
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/VdNW0Mbo5e/dNW05DXbo5/size_m_1650629912.webp"
+                    media="(min-width: 992px)"
+                  />
+                  <source srcset="https://a10.gaanacdn.com/gn_img/showcase/VdNW0Mbo5e/dNW05DXbo5/size_s_1650629912.webp" />
+                  <img
+                    srcset="https://a10.gaanacdn.com/images/showcase/1650629912_13731.jpg"
+                    alt="Sad Songs - English"
+                    title="Sad Songs - English"
+                  />
+                </picture>
               </a>
             </li>
           </Carousel>

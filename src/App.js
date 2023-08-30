@@ -18,6 +18,7 @@ import Row from "./components/Horizontal";
 import Horizontal from "./components/HorizontalScroll";
 import FeaturedSongs from "./components/FeaturedSongs";
 import NewRelease from "./components/NewRelease";
+import Footer from "./components/Footer";
 // import "./App.css";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
               <Route path="/horizontal" element={<Row />} />
               <Route path="/featured" element={<FeaturedSongs />} />
               <Route path="/newrelease" element={<NewRelease />} />
+              <Route path="/footer" element={<Footer />} />
             </Routes>
           </Container>
         </BrowserRouter>
