@@ -7,32 +7,36 @@ import NewRelease from "./NewRelease";
 import Artist from "./ArtistList";
 import Row from "./Horizontal";
 import SlidingCaraousel from "./SlidingCaraousel";
+import { useSelector } from "react-redux";
 
 const MusicList = () => {
-  const [musicData, setMusicData] = useState([]);
+  // const [musicData, setMusicData] = useState([]);
+  const artistData = useSelector((state) => state.artistData);
+  const albumData = useSelector((state) => state.albumData);
+  const musicData = useSelector((state) => state.musicData);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://academics.newtonschool.co/api/v1/music/song",
-          {
-            headers: {
-              projectId: "9cwb93cdi4mj",
-            },
-          }
-        );
-        const data = await response?.json();
-        setMusicData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://academics.newtonschool.co/api/v1/music/song",
+  //         {
+  //           headers: {
+  //             projectId: "9cwb93cdi4mj",
+  //           },
+  //         }
+  //       );
+  //       const data = await response?.json();
+  //       setMusicData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  console.log("this is music data", musicData);
+  console.log("this is music data from redux store", musicData);
   const musicList = musicData.data || [];
   console.log("this is array data", musicList);
   return (

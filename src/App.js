@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import {
   Container,
@@ -20,8 +20,75 @@ import FeaturedSongs from "./components/FeaturedSongs";
 import NewRelease from "./components/NewRelease";
 import Footer from "./components/Footer";
 import "./App.css";
+import { useDispatch } from "react-redux";
+import { setArtistData, setAlbumData, setMusicData } from "./Redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchArtistData = async () => {
+      try {
+        const response = await fetch(
+          "https://academics.newtonschool.co/api/v1/music/artist",
+          {
+            headers: {
+              projectId: "9cwb93cdi4mj",
+            },
+          }
+        );
+        const data = await response.json();
+        dispatch(setArtistData(data));
+      } catch (error) {
+        console.error("Error fetching artist data:", error);
+      }
+    };
+
+    fetchArtistData();
+  }, []);
+
+  useEffect(() => {
+    const fetchAlbumData = async () => {
+      try {
+        const response = await fetch(
+          "https://academics.newtonschool.co/api/v1/music/album",
+          {
+            headers: {
+              projectId: "9cwb93cdi4mj",
+            },
+          }
+        );
+        const data = await response.json();
+        dispatch(setAlbumData(data));
+      } catch (error) {
+        console.error("Error fetching album data:", error);
+      }
+    };
+
+    fetchAlbumData();
+  }, []);
+
+  useEffect(() => {
+    const fetchMusicData = async () => {
+      try {
+        const response = await fetch(
+          "https://academics.newtonschool.co/api/v1/music/song",
+          {
+            headers: {
+              projectId: "9cwb93cdi4mj",
+            },
+          }
+        );
+        const data = await response?.json();
+        dispatch(setMusicData(data));
+      } catch (error) {
+        console.error("Error fetching music data:", error);
+      }
+    };
+
+    fetchMusicData();
+  }, []);
+
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
