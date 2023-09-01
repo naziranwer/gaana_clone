@@ -22,6 +22,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { setArtistData, setAlbumData, setMusicData } from "./Redux/actions";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -113,7 +114,8 @@ function App() {
           <Container className="full-width-container">
             {/* <h1>Music App</h1> */}
             <Routes>
-              <Route path="/" exact element={<MusicList />} />
+              <Route path="/" exact element={<Home />} />
+              <Route path="/musiclist" exact element={<MusicList />} />
               <Route path="/albums" element={<Album />} />
               <Route path="/nav" element={<NavBar />} />
               <Route path="/header" element={<HeaderComponent />} />

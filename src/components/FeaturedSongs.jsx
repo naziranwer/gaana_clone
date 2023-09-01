@@ -4,9 +4,11 @@ import MusicCard from "./MusicCard";
 import "../App.css";
 import Horizontal from "./HorizontalScroll";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const FeaturedSongs = ({ musicData }) => {
-  console.log("music data in feautured", musicData);
+const FeaturedSongs = () => {
+  const musicData = useSelector((state) => state.musicData);
+  console.log("music data in feautured from redux", musicData);
 
   const navigate = useNavigate();
   const data = musicData?.data;
