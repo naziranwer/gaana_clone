@@ -6,11 +6,11 @@ import "./Album.css";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4,
+    items: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 1,
   },
   smartphone: {
     breakpoint: { max: 824, min: 464 },
@@ -18,7 +18,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 0,
   },
 };
 
@@ -33,10 +33,10 @@ const SlidingCaraousel = () => {
             responsive={responsive}
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={2000}
+            autoPlaySpeed={3000}
             keyBoardControl={true}
             showDots={false}
-            slidesToSlide={3}
+            slidesToSlide={1}
             containerClass="carousel-container"
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px custom-carousel-item"
@@ -65,10 +65,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -93,10 +89,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -121,10 +113,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -149,10 +137,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -177,10 +161,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
@@ -205,10 +185,6 @@ const SlidingCaraousel = () => {
                 </picture>
               </a>
             </li>
-            <li className="custom-carousel-item">
-              {/* Content between the first and second slide */}
-            </li>
-
             <li class="slide animate">
               <a
                 class="_a default_bg"
