@@ -1,38 +1,46 @@
 import React from "react";
-import { InputBase } from "@mui/material";
+import { InputBase, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/system";
 
 const SearchContainer = styled("div")({
-  position: "relative",
-  width: "500px",
-  height: "40px",
+  display: "flex",
+  alignItems: "center",
   backgroundColor: "#fff",
   borderRadius: "40px",
+  width: "450px",
+  maxWidth: "1000px", // Limit the maximum width for responsiveness
+  margin: "0 auto", // Center the search bar horizontally
+  height: "40px",
 });
 
 const SearchIconContainer = styled("div")({
   padding: "8px",
-  position: "absolute",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
 });
 
 const SearchInput = styled(InputBase)({
   padding: "8px",
-  // paddingLeft: "40px",
   width: "100%",
+  border: "none", // Remove border
+  "&::placeholder": {
+    opacity: 0.7, // Reduce the opacity of the placeholder text
+    fontSize: "14px",
+    fontWeight: "normal",
+  },
 });
 
 const SearchBar = () => {
   return (
     <SearchContainer>
       <SearchIconContainer>
-        <SearchIcon />
+        <IconButton aria-label="search">
+          <SearchIcon />
+        </IconButton>
       </SearchIconContainer>
       <SearchInput
-        placeholder="Search Artists,Songs,Albums"
+        placeholder="Search Artists, Songs, Albums"
         inputProps={{ "aria-label": "search" }}
       />
     </SearchContainer>

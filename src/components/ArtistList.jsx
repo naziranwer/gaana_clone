@@ -23,7 +23,7 @@ const Artist = () => {
   console.log("artists list", artistList);
 
   const artistClick = (artist) => {
-    navigate(`/artist/${artist.name}`, { state: artist });
+    navigate(`/artist/${artist._id}`, { state: artist });
     console.log("navigation for artist");
   };
   return (

@@ -97,7 +97,7 @@ const NavBar = ({ toggleDarkMode }) => {
             >
               Get Gaana Plus
             </a>
-            <button class="lg mr">
+            <button class="lg mr" style={{ border: "none" }}>
               <svg width="32" height="24" viewBox="0 0 20 16">
                 <g fill="none" fill-rule="evenodd">
                   <g transform="translate(-1108 -117) translate(1089 58) translate(19 15) translate(0 43) translate(.5 1.5)">

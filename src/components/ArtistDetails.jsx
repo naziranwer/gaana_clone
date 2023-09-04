@@ -105,37 +105,42 @@ import AudioPlayer from "./AudioPlayer";
 const ArtistDetails = () => {
   const location = useLocation();
   const artist = location.state;
-  const [musicData, setMusicData] = useState([]);
+  const artistId = artist._id;
+
+  const [artistData, setArtistData] = useState(null);
 
   useEffect(() => {
-    fetch("https://academics.newtonschool.co/api/v1/music/song", {
+    fetch(`https://academics.newtonschool.co/api/v1/music/artist/${artistId}`, {
       headers: {
         projectId: "9cwb93cdi4mj",
       },
     })
       .then((response) => response.json())
-      .then((data) => setMusicData(data))
+      .then((data) => setArtistData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const songsArray = musicData?.data;
+  // const songsArray = musicData?.data;
 
-  console.log("whole music list", songsArray);
+  // console.log("whole music list", songsArray);
 
-  const [currentSongIndex, setCurrentSongIndex] = useState(null);
+  // const [currentSongIndex, setCurrentSongIndex] = useState(null);
 
-  console.log("artistdetails", artist);
+  // console.log("artistdetails", artist);
 
-  const artistSongs = artist.songs;
-  const albumArtist = artist.artists;
+  // const artistSongs = artist.songs;
+  // const albumArtist = artist.artists;
 
-  const songsInArtist = artistSongs.map((id) => {
-    return songsArray?.find((song) => song._id === id);
-  });
+  // const songsInArtist = artistSongs.map((id) => {
+  //   return songsArray?.find((song) => song._id === id);
+  // });
+
+  const songsInArtist = artistData?.data?.songs;
 
   console.log("matched songs", songsInArtist);
 
   return (
+    // <h1>hiii</h1>
     <div style={{ margin: "30px" }}>
       <Card>
         <div style={{ display: "flex" }}>
@@ -160,7 +165,7 @@ const ArtistDetails = () => {
       <List>
         {songsInArtist?.map((song, index) => {
           const artistsNameArray = song?.artist
-            ?.map((artist) => artist.name)
+            ?.map((artist) => artist?.name)
             .join(", ");
 
           return (

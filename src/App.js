@@ -31,7 +31,7 @@ function App() {
     const fetchArtistData = async () => {
       try {
         const response = await fetch(
-          "https://academics.newtonschool.co/api/v1/music/artist",
+          "https://academics.newtonschool.co/api/v1/music/artist/",
           {
             headers: {
               projectId: "9cwb93cdi4mj",
