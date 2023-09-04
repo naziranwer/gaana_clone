@@ -6,6 +6,7 @@ import MusicCard from "./MusicCard";
 import NewRelease from "./NewRelease";
 import Artist from "./ArtistList";
 import Row from "./Horizontal";
+import Header from "./HeaderComponent";
 import SlidingCaraousel from "./SlidingCaraousel";
 import { useSelector } from "react-redux";
 
@@ -20,6 +21,7 @@ const Home = () => {
   console.log("this is array data", musicList);
   return (
     <div>
+      <Header />
       {musicData.status === "success" ? (
         <div>
           <SlidingCaraousel />
