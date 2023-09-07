@@ -107,7 +107,7 @@ const SearchResultsBox = styled("div")({
   backgroundColor: "#fff",
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   zIndex: 1, // Ensure the box is above other content
-  display: "none", // Initially hide the box
+  // display: "none", // Initially hide the box
 });
 
 const SearchBar = () => {
