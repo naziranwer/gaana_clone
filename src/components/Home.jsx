@@ -26,7 +26,7 @@ const Home = () => {
         <div>
           <SlidingCaraousel />
           <FeaturedSongs />
-          <NewRelease musicData={musicData} />
+          <NewRelease />
 
           <Row />
         </div>

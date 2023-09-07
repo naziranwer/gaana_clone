@@ -147,32 +147,32 @@ const ArtistDetails = () => {
           <CardMedia
             component="img"
             height="300"
-            image={artist.image}
-            alt={artist.name}
+            image={artist?.image}
+            alt={artist?.name}
             style={{ flex: 1 }}
           />
           <CardContent style={{ flex: 2 }}>
             <Typography variant="h5" gutterBottom>
               {artist.name}
             </Typography>
-            <Typography variant="h3">{artist.name}</Typography>
+            <Typography variant="h3">{artist?.name}</Typography>
             {/* Add more artist details here */}
-            <Typography variant="h8">{artist.description}</Typography>
+            <Typography variant="h8">{artist?.description}</Typography>
           </CardContent>
         </div>
       </Card>
 
       <List>
         {songsInArtist?.map((song, index) => {
-          const artistsNameArray = song?.artist
-            ?.map((artist) => artist?.name)
-            .join(", ");
+          //       // const artistsNameArray = song?.artist
+          //       //   ?.map((artist) => artist?.name)
+          //       //   .join(", ");
 
           return (
             <ListItem key={song?._id}>
               <ListItemText
                 primary={song?.title}
-                secondary={artistsNameArray}
+                // secondary={artistsNameArray}
               />
               {/* {song && (
                 // <audio controls>
@@ -183,7 +183,7 @@ const ArtistDetails = () => {
             </ListItem>
           );
         })}
-        <AudioPlayer song={songsInArtist[0]} />
+        {/* <AudioPlayer song={songsInArtist[0]} /> */}
       </List>
     </div>
   );

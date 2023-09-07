@@ -16,6 +16,8 @@ import "./Header.css";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { Diversity2Outlined, Diversity2Rounded } from "@mui/icons-material";
 import SideNavbar from "./SideNav";
+import Brightness3OutlinedIcon from "@mui/icons-material/Brightness3Outlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 const NavBar = ({ toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -59,7 +61,11 @@ const NavBar = ({ toggleDarkMode }) => {
               aria-label="menu"
               onClick={toggleSideNav}
             >
-              <MenuIcon style={{ color: "black" }} />
+              <MenuIcon
+                style={{
+                  color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                }}
+              />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <div className="log_wrap">
@@ -88,16 +94,21 @@ const NavBar = ({ toggleDarkMode }) => {
           </div>
           <div
             className="rt sm-hide"
-            style={{ display: "flex", alignItems: "center", gap: "5px" }}
+            style={{ display: "flex", alignItems: "center", gap: "10px" }}
           >
             <a
               href="https://gaana.com/subscribe/buy-gaana-plus?udf=dw_topbar_GetGaanaPlus"
               target="_blank"
-              className="gplus mr60"
+              className={
+                theme.palette.mode === "dark" ? "gplusdark" : "gplus mr60"
+              }
             >
               Get Gaana Plus
             </a>
-            <button class="lg mr" style={{ border: "none" }}>
+            <button
+              class="lg mr"
+              style={{ border: "none", backgroundColor: appBarBackgroundColor }}
+            >
               <svg width="32" height="24" viewBox="0 0 20 16">
                 <g fill="none" fill-rule="evenodd">
                   <g transform="translate(-1108 -117) translate(1089 58) translate(19 15) translate(0 43) translate(.5 1.5)">
@@ -107,7 +118,7 @@ const NavBar = ({ toggleDarkMode }) => {
                       height="11"
                       x="7.591"
                       y="3.5"
-                      fill="#FFF"
+                      fill={theme.palette.mode === "dark" ? "#1e1e1e" : "#fff"}
                       stroke="#8E8E93"
                       rx="5.5"
                     ></rect>
@@ -117,7 +128,7 @@ const NavBar = ({ toggleDarkMode }) => {
                       height="11"
                       x=".5"
                       y=".5"
-                      fill="#FFF"
+                      fill={theme.palette.mode === "dark" ? "#1e1e1e" : "#fff"}
                       stroke="#8E8E93"
                       rx="5.5"
                     ></rect>
@@ -137,21 +148,25 @@ const NavBar = ({ toggleDarkMode }) => {
             </button>
             <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
               <button class="thm mr" aria-label="theme button">
-                <svg width="28" height="28" viewBox="0 0 30 30">
-                  <g fill="none" fill-rule="evenodd">
-                    <g
-                      class="svg_stroke"
-                      fill-rule="nonzero"
-                      stroke="#000"
-                      stroke-width=".5"
-                    >
-                      <path
-                        d="M18.062 15.441c-2.222 1.13-4.847 1.148-7.084.047-2.237-1.1-3.825-3.19-4.287-5.64-.526-2.94.62-5.93 2.975-7.768.241-.185.321-.512.193-.787-.119-.279-.415-.438-.714-.384h-.002c-2.678.463-5.047 2.012-6.545 4.28-1.497 2.269-1.99 5.055-1.364 7.7.568 2.587 2.164 4.833 4.42 6.22 2.087 1.27 4.565 1.739 6.972 1.319.193-.034.386-.074.577-.12 1.393-.337 2.697-.971 3.822-1.859.72-.584 1.35-1.27 1.872-2.036.174-.247.158-.58-.04-.81-.196-.23-.524-.296-.795-.162zm-1.447 2.489c-1.05.828-2.266 1.42-3.566 1.735-2.406.567-4.938.165-7.05-1.12-2.104-1.295-3.591-3.39-4.12-5.803-.587-2.469-.127-5.07 1.271-7.189C4.548 3.436 6.76 1.99 9.26 1.56 6.71 3.55 5.47 6.788 6.042 9.972c.5 2.653 2.219 4.916 4.641 6.109 2.422 1.193 5.264 1.176 7.672-.046-.485.713-1.07 1.352-1.74 1.896h0v-.001z"
-                        transform="translate(5 5)"
-                      ></path>
+                {theme.palette.mode != "dark" ? (
+                  <svg width="28" height="28" viewBox="0 0 30 30">
+                    <g fill="none" fill-rule="evenodd">
+                      <g
+                        class="svg_stroke"
+                        fill-rule="nonzero"
+                        stroke="#000"
+                        stroke-width=".5"
+                      >
+                        <path
+                          d="M18.062 15.441c-2.222 1.13-4.847 1.148-7.084.047-2.237-1.1-3.825-3.19-4.287-5.64-.526-2.94.62-5.93 2.975-7.768.241-.185.321-.512.193-.787-.119-.279-.415-.438-.714-.384h-.002c-2.678.463-5.047 2.012-6.545 4.28-1.497 2.269-1.99 5.055-1.364 7.7.568 2.587 2.164 4.833 4.42 6.22 2.087 1.27 4.565 1.739 6.972 1.319.193-.034.386-.074.577-.12 1.393-.337 2.697-.971 3.822-1.859.72-.584 1.35-1.27 1.872-2.036.174-.247.158-.58-.04-.81-.196-.23-.524-.296-.795-.162zm-1.447 2.489c-1.05.828-2.266 1.42-3.566 1.735-2.406.567-4.938.165-7.05-1.12-2.104-1.295-3.591-3.39-4.12-5.803-.587-2.469-.127-5.07 1.271-7.189C4.548 3.436 6.76 1.99 9.26 1.56 6.71 3.55 5.47 6.788 6.042 9.972c.5 2.653 2.219 4.916 4.641 6.109 2.422 1.193 5.264 1.176 7.672-.046-.485.713-1.07 1.352-1.74 1.896h0v-.001z"
+                          transform="translate(5 5)"
+                        ></path>
+                      </g>
                     </g>
-                  </g>
-                </svg>
+                  </svg>
+                ) : (
+                  <LightModeOutlinedIcon style={{ color: "#f5f5f5" }} />
+                )}
               </button>
             </div>
             <IconButton

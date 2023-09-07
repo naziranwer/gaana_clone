@@ -35,21 +35,6 @@ const Horizontal = ({ array }) => {
   const [artistData, setArtistData] = useState([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   fetch("https://academics.newtonschool.co/api/v1/music/item", {
-  //     headers: {
-  //       projectId: "9cwb93cdi4mj",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => setArtistData(data.data))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
-
-  // const artistClick = (item) => {
-  //   navigate(`/item/${item.title}`, { state: item });
-  //   console.log("navigation for item");
-  // };
   console.log("horizontal scroll for featured ", array);
 
   return (

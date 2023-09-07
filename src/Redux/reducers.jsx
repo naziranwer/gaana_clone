@@ -28,10 +28,20 @@ const musicReducer = (state = [], action) => {
   }
 };
 
+const songReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_SONG_DATA":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   artistData: artistReducer,
   albumData: albumReducer,
   musicData: musicReducer,
+  songReducer: songReducer,
 });
 
 // Store

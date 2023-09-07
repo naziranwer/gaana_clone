@@ -20,9 +20,16 @@ import FeaturedSongs from "./components/FeaturedSongs";
 import NewRelease from "./components/NewRelease";
 import Footer from "./components/Footer";
 import "./App.css";
-import { useDispatch } from "react-redux";
-import { setArtistData, setAlbumData, setMusicData } from "./Redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setArtistData,
+  setAlbumData,
+  setMusicData,
+  setOneSongData,
+} from "./Redux/actions";
 import Home from "./components/Home";
+import AudioPlayer from "./components/AudioPlayer";
+import Romance from "./components/moods/Romance";
 
 function App() {
   const dispatch = useDispatch();
@@ -73,7 +80,7 @@ function App() {
     const fetchMusicData = async () => {
       try {
         const response = await fetch(
-          "https://academics.newtonschool.co/api/v1/music/song",
+          "https://academics.newtonschool.co/api/v1/music/song?page=1&limit=1000",
           {
             headers: {
               projectId: "9cwb93cdi4mj",
@@ -90,7 +97,16 @@ function App() {
     fetchMusicData();
   }, []);
 
+  const musicData = useSelector((state) => state.musicData);
+  console.log("this is music data from redux store in app.js", musicData);
+  const musicList = musicData.data || [];
+  console.log("this is array data in app.js", musicList);
+
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  {
+    musicList.length > 0 && dispatch(setOneSongData(musicList[0]));
+  }
 
   const toggleDarkMode = () => {
     console.log("Toggle the dark mode", isDarkMode);
@@ -121,15 +137,21 @@ function App() {
               <Route path="/header" element={<HeaderComponent />} />
               <Route path="/albums/:albumTitle" element={<AlbumDetails />} />
               <Route path="/artist" element={<Artist />} />
-              <Route path="/artist/:artistName" element={<ArtistDetails />} />
+              <Route path="/artist/:artistId" element={<ArtistDetails />} />
               <Route path="/btnlist" element={<Horizontal />} />
               <Route path="/horizontal" element={<Row />} />
               <Route path="/featured" element={<FeaturedSongs />} />
               <Route path="/newrelease" element={<NewRelease />} />
               <Route path="/footer" element={<Footer />} />
+              <Route path="/romance" element={<Romance />} />
+              <Route path="/audioplayer" element={<AudioPlayer />} />
             </Routes>
           </Container>
         </BrowserRouter>
+        <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        <Footer />
+        <br /> <br /> <br />
+        <AudioPlayer />
       </ThemeProvider>
     </>
   );

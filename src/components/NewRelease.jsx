@@ -4,8 +4,10 @@ import MusicCard from "./MusicCard";
 import "../App.css";
 import Horizontal from "./HorizontalScroll";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const NewRelease = ({ musicData }) => {
+const NewRelease = () => {
+  const musicData = useSelector((state) => state.musicData);
   console.log("music data in new release", musicData);
 
   const data = musicData?.data;
