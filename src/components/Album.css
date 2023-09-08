@@ -11,6 +11,14 @@
 #banner_carousel.inner.animate > li.slide {
   margin: 5px; /* Adjust this value for the desired space */
 }
+.music-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-card .MuiCardMedia-root {
+  flex-grow: 1;
+}
 
 @media (max-width: 768px) {
   .album-grid {

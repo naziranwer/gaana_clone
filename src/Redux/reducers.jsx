@@ -37,11 +37,21 @@ const songReducer = (state = {}, action) => {
   }
 };
 
+const searchTerm = (state = "", action) => {
+  switch (action.type) {
+    case "SET_SEARCH_TERM":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   artistData: artistReducer,
   albumData: albumReducer,
   musicData: musicReducer,
   songReducer: songReducer,
+  searchTerm: searchTerm,
 });
 
 // Store

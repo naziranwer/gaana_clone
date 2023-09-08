@@ -5,6 +5,7 @@ export const SET_ARTIST_DATA = "SET_ARTIST_DATA";
 export const SET_ALBUM_DATA = "SET_ALBUM_DATA";
 export const SET_MUSIC_DATA = "SET_MUSIC_DATA";
 export const SET_SONG_DATA = "SET_SONG_DATA";
+export const SET_SEARCH_TERM = "SET_SEARCH_TERM";
 
 // Action creators
 export const setArtistData = (data) => {
@@ -31,6 +32,13 @@ export const setMusicData = (data) => {
 export const setOneSongData = (data) => {
   return {
     type: SET_SONG_DATA,
+    payload: data,
+  };
+};
+
+export const setSearchTerm = (data) => {
+  return {
+    type: SET_SEARCH_TERM,
     payload: data,
   };
 };
