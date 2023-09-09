@@ -6,8 +6,12 @@ const Favourite = () => {
   const FavouriteSongs = useSelector((state) => state.favouriteSongs);
   return (
     <>
-      <div>Favourite Songs</div>
-      <MusicCard data={FavouriteSongs} />
+      <h1 style={{ textAlign: "center" }}>Favourite Songs</h1>
+      {FavouriteSongs.length > 0 ? (
+        <MusicCard data={FavouriteSongs} />
+      ) : (
+        <div style={{ textAlign: "center" }}>List is Empty</div>
+      )}
     </>
   );
 };

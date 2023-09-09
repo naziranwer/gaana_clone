@@ -130,11 +130,11 @@ const Header = () => {
           <StyledLink href="/featured">Trending Songs</StyledLink>
           <StyledLink href="/newrelease">New Songs</StyledLink>
           <StyledLink href="/musiclist">Old Songs</StyledLink>
-          <DropdownMenu />
+          {/* <DropdownMenu /> */}
           <StyledLink href="albums">Albums</StyledLink>
           <StyledLink href="/musiclist">Radio</StyledLink>
           <StyledLink href="/musiclist">Podcast</StyledLink>
-          <StyledLink href="/musiclist">My Music</StyledLink>
+          <StyledLink href="/favourite">My Music</StyledLink>
         </nav>
       </Container>
     </section>
