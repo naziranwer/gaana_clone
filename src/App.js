@@ -13,7 +13,6 @@ import NavBar from "./components/Navbar";
 import Artist from "./components/ArtistList";
 import ArtistDetails from "./components/ArtistDetails";
 import HeaderComponent from "./components/HeaderComponent";
-import ButtonList from "./components/ButtonList";
 import Row from "./components/Horizontal";
 import Horizontal from "./components/HorizontalScroll";
 import FeaturedSongs from "./components/FeaturedSongs";
@@ -30,6 +29,7 @@ import {
 import Home from "./components/Home";
 import AudioPlayer from "./components/AudioPlayer";
 import Romance from "./components/moods/Romance";
+import Favourite from "./components/Favourite";
 
 function App() {
   const dispatch = useDispatch();
@@ -146,6 +146,7 @@ function App() {
               <Route path="/footer" element={<Footer />} />
               <Route path="/romance" element={<Romance />} />
               <Route path="/audioplayer" element={<AudioPlayer />} />
+              <Route path="/favourite" element={<Favourite />} />
             </Routes>
           </Container>
         </BrowserRouter>

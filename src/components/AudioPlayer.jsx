@@ -8,7 +8,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import { useTheme } from "@mui/material";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { Avatar, Typography } from "@mui/material";
 import "../App.css";
@@ -22,6 +22,10 @@ const AudioPlayer = () => {
 
   console.log("favourite Songs", favouriteSongs);
 
+  const isSongInFavorites = (song, favouriteSongs) => {
+    // Use the favoriteSongs array from your Redux state to check if the song is in favorites
+    return favouriteSongs.some((favoriteSong) => favoriteSong._id === song._id);
+  };
   // const [song, setSong] = useState(songfromRedux);
   // setSong(songfromRedux);
 
@@ -89,13 +93,14 @@ const AudioPlayer = () => {
   const AudioPlayerBackgroundColor =
     theme.palette.mode === "dark" ? "#1e1e1e" : "#fff";
 
-  const AddFav = () => {
-    dispatch(addFavorite(song));
-    console.log("song added to favorite");
-  };
-  const RemoveFav = () => {
-    dispatch(removeFavorite(song));
-    console.log("song removed from favorite");
+  const handleFav = () => {
+    if (isSongInFavorites(song, favouriteSongs)) {
+      dispatch(removeFavorite(song));
+      console.log("song removed from favorite");
+    } else {
+      dispatch(addFavorite(song));
+      console.log("song added to favorite");
+    }
   };
 
   return (
@@ -150,8 +155,12 @@ const AudioPlayer = () => {
             <Typography variant="subtitle1">{song?.title}</Typography>
           </div>
           <div style={{ marginLeft: "auto" }}>
-            <IconButton onClick={AddFav}>
-              <FavoriteBorderOutlinedIcon />
+            <IconButton onClick={handleFav}>
+              {isSongInFavorites(song, favouriteSongs) ? (
+                <FavoriteIcon style={{ color: "#E72C30" }} />
+              ) : (
+                <FavoriteBorderOutlinedIcon />
+              )}
             </IconButton>
           </div>
         </div>
