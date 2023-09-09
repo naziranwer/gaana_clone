@@ -46,12 +46,24 @@ const searchTerm = (state = "", action) => {
   }
 };
 
+const favouriteSongs = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_FAV":
+      return [...state, action.payload];
+    case "REMOVE_FAV":
+      return state.filter((song) => song._id !== action.payload._id);
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   artistData: artistReducer,
   albumData: albumReducer,
   musicData: musicReducer,
   songReducer: songReducer,
   searchTerm: searchTerm,
+  favouriteSongs: favouriteSongs,
 });
 
 // Store

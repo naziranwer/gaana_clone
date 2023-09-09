@@ -99,7 +99,11 @@ import {
   ListItem,
   ListItemText,
   Button,
+  ListItemAvatar,
+  Avatar,
+  IconButton,
 } from "@mui/material";
+import { PlayArrow } from "@mui/icons-material";
 import AudioPlayer from "./AudioPlayer";
 
 const ArtistDetails = () => {
@@ -170,16 +174,28 @@ const ArtistDetails = () => {
 
           return (
             <ListItem key={song?._id}>
+              <ListItemAvatar>
+                {/* Add your song image here */}
+                <Avatar src={song.thumbnail} alt={song.title} />
+                {/* Add a white color icon over the image */}
+                <IconButton
+                  style={{
+                    position: "absolute",
+                    backgroundColor: "white",
+                    borderRadius: "50%",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <PlayArrow style={{ color: "black" }} />{" "}
+                  {/* Adjust icon color */}
+                </IconButton>
+              </ListItemAvatar>
               <ListItemText
                 primary={song?.title}
                 // secondary={artistsNameArray}
               />
-              {/* {song && (
-                // <audio controls>
-                //   <source src={song?.audio_url} type="audio/mp4" />
-                // </audio>
-                <AudioPlayer song={song} />
-              )} */}
             </ListItem>
           );
         })}

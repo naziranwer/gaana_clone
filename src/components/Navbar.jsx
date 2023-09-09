@@ -46,6 +46,7 @@ const NavBar = ({ toggleDarkMode }) => {
         position="static"
         sx={{
           width: "100%",
+          height: "80px",
           backgroundColor: appBarBackgroundColor,
           display: "flex",
           flexDirection: "row",
@@ -53,7 +54,14 @@ const NavBar = ({ toggleDarkMode }) => {
           alignItems: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            marginLeft: "5px",
+          }}
+        >
           <IconButton
             edge="start"
             color="inherit"
@@ -186,12 +194,16 @@ const NavBar = ({ toggleDarkMode }) => {
             <MenuItem onClick={handleMenuClose}>Languages</MenuItem>
             <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
             <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Night Mode</MenuItem>
+            <MenuItem onClick={toggleDarkMode}>Night Mode</MenuItem>
           </Menu>
         </div>
         {/* </Toolbar> */}
       </AppBar>
-      <SideNavbar open={sideNavOpen} onClose={toggleSideNav} />
+      <SideNavbar
+        open={sideNavOpen}
+        onClose={toggleSideNav}
+        toggleDarkMode={toggleDarkMode}
+      />
     </>
   );
 };

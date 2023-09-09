@@ -6,6 +6,8 @@ export const SET_ALBUM_DATA = "SET_ALBUM_DATA";
 export const SET_MUSIC_DATA = "SET_MUSIC_DATA";
 export const SET_SONG_DATA = "SET_SONG_DATA";
 export const SET_SEARCH_TERM = "SET_SEARCH_TERM";
+export const ADD_FAV = "ADD_FAV";
+export const REMOVE_FAV = "REMOVE_FAV";
 
 // Action creators
 export const setArtistData = (data) => {
@@ -42,3 +44,13 @@ export const setSearchTerm = (data) => {
     payload: data,
   };
 };
+
+export const addFavorite = (song) => ({
+  type: ADD_FAV,
+  payload: song,
+});
+
+export const removeFavorite = (song) => ({
+  type: REMOVE_FAV,
+  payload: song,
+});

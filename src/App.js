@@ -124,9 +124,10 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <NavBar toggleDarkMode={toggleDarkMode} />
         <BrowserRouter>
+          <CssBaseline />
+          <NavBar toggleDarkMode={toggleDarkMode} />
+
           <Container className="full-width-container">
             {/* <h1>Music App</h1> */}
             <Routes>
