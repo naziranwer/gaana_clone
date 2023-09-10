@@ -9,6 +9,7 @@ import Row from "./Horizontal";
 import Header from "./HeaderComponent";
 import SlidingCaraousel from "./SlidingCaraousel";
 import { useSelector } from "react-redux";
+import ShimmerUI from "./ShimmerUI";
 
 const Home = () => {
   // const [musicData, setMusicData] = useState([]);
@@ -31,7 +32,9 @@ const Home = () => {
           <Row />
         </div>
       ) : (
-        <div>Error in fetch</div>
+        <>
+          <ShimmerUI />
+        </>
       )}
     </div>
   );
