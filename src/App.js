@@ -30,6 +30,9 @@ import Home from "./components/Home";
 import AudioPlayer from "./components/AudioPlayer";
 import Romance from "./components/moods/Romance";
 import Favourite from "./components/Favourite";
+import Login from "./components/auth/Login";
+import AnotherLogin from "./components/auth/AnotherLogin";
+import Signup from "./components/auth/Register";
 
 function App() {
   const dispatch = useDispatch();
@@ -147,6 +150,9 @@ function App() {
               <Route path="/romance" element={<Romance />} />
               <Route path="/audioplayer" element={<AudioPlayer />} />
               <Route path="/favourite" element={<Favourite />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/alogin" element={<AnotherLogin />} />
+              <Route path="/signup" element={<Signup />} />
             </Routes>
           </Container>
         </BrowserRouter>

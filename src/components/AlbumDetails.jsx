@@ -15,10 +15,13 @@ import {
   IconButton,
 } from "@mui/material";
 import { PlayArrow } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { setOneSongData } from "../Redux/actions";
 
 export const AlbumDetails = () => {
   const location = useLocation();
   const album = location.state;
+  const dispatch = useDispatch();
 
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
 
@@ -36,8 +39,8 @@ export const AlbumDetails = () => {
     return artistNames.filter((name) => name !== null).join(", ");
   });
 
-  const handlePlayClick = (index) => {
-    setCurrentSongIndex(index);
+  const handleSongClick = (e) => {
+    dispatch(setOneSongData(e));
   };
 
   return (
@@ -63,7 +66,7 @@ export const AlbumDetails = () => {
 
       <List>
         {albumSongs.map((song, index) => (
-          <ListItem key={song._id}>
+          <ListItem key={song._id} onClick={() => handleSongClick(song)}>
             <ListItemAvatar>
               {/* Add your song image here */}
               <Avatar src={song.thumbnail} alt={song.title} />
@@ -86,12 +89,12 @@ export const AlbumDetails = () => {
               primary={song.title}
               secondary={artistNamesArray[index]}
             />
-            {song && (
+            {/* {song && (
               // <audio controls>
               //   <source src={song?.audio_url} type="audio/mp4" />
               // </audio>
               <AudioPlayer song={song} />
-            )}
+            )} */}
           </ListItem>
         ))}
       </List>
