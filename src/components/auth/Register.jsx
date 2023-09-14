@@ -1,11 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 
-function Signup() {
+function Signup({ openLoginModal, closeModal }) {
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    console.log("Registeration completed");
+    try {
+      const response = await fetch(
+        "https://academics.newtonschool.co/api/v1/user/signup",
+        {
+          method: "POST",
+          headers: {
+            projectId: "9cwb93cdi4mj",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: userName,
+            email,
+            password,
+            appType: "music",
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        // Store user data in localStorage
+        // localStorage.setItem("user", data);
+        // Redirect to the login page
+        closeModal();
+        openLoginModal();
+        // window.location.href = '/login';
+      } else {
+        // Handle registration errors
+        console.error("Registration failed");
+      }
+    } catch (error) {
+      console.error("Error during registration", error);
+    }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    closeModal();
+    openLoginModal();
+    console.log("login from register called");
+  };
+
   return (
     <section className="model-open">
       <div className="inner cent-pp login_pp ">
-        <button className="close" aria-label="close">
+        <button className="close" aria-label="close" onClick={closeModal}>
           <svg width="17" height="17" viewBox="0 0 17 17">
             <path
               className="svg_color"
@@ -48,20 +97,36 @@ function Signup() {
                 placeholder="Enter Username"
                 maxLength="80"
                 autoFocus=""
+                onChange={(e) => setUserName(e.target.value)}
               />
               <input
-                id="loginId"
+                // id="loginId"
                 type="text"
                 placeholder="Enter Email or Mobile number"
                 maxLength="80"
                 autoFocus=""
+                onChange={(e) => setEmail(e.target.value)}
               />
-
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <button className="custom-btn" disabled="" type="submit">
+            <button
+              className="custom-btn"
+              disabled=""
+              type="submit"
+              onClick={handleRegister}
+            >
               Continue
             </button>
+            <div style={{ marginTop: "50px" }}>
+              <small>Already have an account?</small>
+              <button onClick={handleLogin} style={{ marginTop: "10px" }}>
+                Login Here
+              </button>
+            </div>
           </form>
         </div>
         <div className="col col_poster sm-hide">

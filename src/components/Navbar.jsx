@@ -18,6 +18,8 @@ import { Diversity2Outlined, Diversity2Rounded } from "@mui/icons-material";
 import SideNavbar from "./SideNav";
 import Brightness3OutlinedIcon from "@mui/icons-material/Brightness3Outlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import Login from "./auth/Login";
+import Signup from "./auth/Register";
 
 const NavBar = ({ toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -39,6 +41,29 @@ const NavBar = ({ toggleDarkMode }) => {
 
   const appBarBackgroundColor =
     theme.palette.mode === "dark" ? "#1e1e1e" : "#f5f5f5";
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+  const openLoginModal = () => {
+    setShowLoginModal(true);
+  };
+
+  const openRegisterModal = () => {
+    setShowRegisterModal(true);
+  };
+
+  const closeModal = () => {
+    setShowLoginModal(false);
+    setShowRegisterModal(false);
+  };
+
+  console.log(
+    "login Modal status",
+    showLoginModal,
+    "register status",
+    showRegisterModal
+  );
 
   return (
     <>
@@ -179,13 +204,23 @@ const NavBar = ({ toggleDarkMode }) => {
           <IconButton
             color="inherit"
             aria-label="profile"
-            onClick={handleMenuClick}
+            onClick={openLoginModal}
             cursor="pointer"
           >
             <AccountCircleIcon />
           </IconButton>
 
-          <Menu
+          {showLoginModal && (
+            <Login
+              openRegisterModal={openRegisterModal}
+              closeModal={closeModal}
+            />
+          )}
+          {showRegisterModal && (
+            <Signup openLoginModal={openLoginModal} closeModal={closeModal} />
+          )}
+
+          {/* <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
@@ -195,7 +230,7 @@ const NavBar = ({ toggleDarkMode }) => {
             <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
             <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
             <MenuItem onClick={toggleDarkMode}>Night Mode</MenuItem>
-          </Menu>
+          </Menu> */}
         </div>
         {/* </Toolbar> */}
       </AppBar>

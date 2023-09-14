@@ -9,6 +9,7 @@
   font: inherit;
   /* vertical-align: baseline; */
   display: block;
+  z-index: 999;
 }
 .inner {
   text-align: left;
@@ -154,4 +155,10 @@ small {
   background-position: 50%;
   background-image: url(https://a10.gaanacdn.com/gn_img/images/login_bg_v1_1621430866.jpg);
   display: flex !important;
+}
+
+@media (max-width: 968px) {
+  .col_poster {
+    display: none; /* Hide it on screens with a width of 768px or smaller */
+  }
 }

@@ -1,11 +1,52 @@
-import React from "react";
-import "./Login.css";
+import React, { useState } from "react";
+// import "./Login.css";
 
-function Login() {
+function Login({ openRegisterModal, closeModal }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://academics.newtonschool.co/api/v1/user/login",
+        {
+          method: "POST",
+          headers: {
+            projectId: "9cwb93cdi4mj",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            appType: "music",
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        // Store user data in localStorage
+        localStorage.setItem("user", data);
+        // Redirect to the music player or other authorized content
+        window.location.href = "/favourite";
+      } else {
+        // Handle login errors
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login", error);
+    }
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    openRegisterModal();
+  };
   return (
     <section className="model-open">
       <div className="inner cent-pp login_pp ">
-        <button className="close" aria-label="close">
+        <button className="close" aria-label="close" onClick={closeModal}>
           <svg width="17" height="17" viewBox="0 0 17 17">
             <path
               className="svg_color"
@@ -48,14 +89,30 @@ function Login() {
                 placeholder="Enter Email or Mobile number"
                 maxLength="80"
                 autoFocus=""
+                onChange={(e) => setEmail(e.target.value)}
               />
               <div className="password">
-                <input type="password" placeholder="Password" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
             </div>
-            <button className="custom-btn" disabled="" type="submit">
+            <button
+              className="custom-btn"
+              disabled=""
+              type="submit"
+              onClick={handleLogin}
+            >
               Continue
             </button>
+            <div style={{ marginTop: "50px" }}>
+              <small>Not have an account?</small>
+              <button onClick={handleRegister} style={{ marginTop: "10px" }}>
+                Register Here
+              </button>
+            </div>
           </form>
         </div>
         <div className="col col_poster sm-hide">

@@ -23,9 +23,10 @@ const Home = () => {
   return (
     <div>
       <Header />
+      {/* <SlidingCaraousel /> */}
       {musicData.status === "success" ? (
         <div>
-          <SlidingCaraousel />
+          {/* <SlidingCaraousel /> */}
           <FeaturedSongs />
           <NewRelease />
 

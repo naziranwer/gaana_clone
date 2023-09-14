@@ -151,7 +151,7 @@ function App() {
               <Route path="/audioplayer" element={<AudioPlayer />} />
               <Route path="/favourite" element={<Favourite />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/alogin" element={<AnotherLogin />} />
+              {/* <Route path="/alogin" element={<AnotherLogin />} /> */}
               <Route path="/signup" element={<Signup />} />
             </Routes>
           </Container>

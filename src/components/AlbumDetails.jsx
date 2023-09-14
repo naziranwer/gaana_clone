@@ -26,8 +26,8 @@ export const AlbumDetails = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
 
   console.log("albumdetails", album);
-  const albumSongs = album.songs;
-  const albumArtist = album.artists;
+  const albumSongs = album?.songs;
+  const albumArtist = album?.artists;
 
   const artistNamesArray = albumSongs.map((song) => {
     const artistNames = song.artist.map((art) => {

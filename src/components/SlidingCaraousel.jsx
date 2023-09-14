@@ -23,6 +23,8 @@ const responsive = {
 };
 
 const SlidingCaraousel = () => {
+  console.log("caraousel rendering");
+
   return (
     <>
       <div>
