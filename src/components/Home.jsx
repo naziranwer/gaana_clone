@@ -26,7 +26,7 @@ const Home = () => {
       {/* <SlidingCaraousel /> */}
       {musicData.status === "success" ? (
         <div>
-          {/* <SlidingCaraousel /> */}
+          <SlidingCaraousel />
           <FeaturedSongs />
           <NewRelease />
 

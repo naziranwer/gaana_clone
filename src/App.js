@@ -19,6 +19,8 @@ import FeaturedSongs from "./components/FeaturedSongs";
 import NewRelease from "./components/NewRelease";
 import Footer from "./components/Footer";
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setArtistData,
@@ -133,6 +135,7 @@ function App() {
 
           <Container className="full-width-container">
             {/* <h1>Music App</h1> */}
+            <ToastContainer />
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/musiclist" exact element={<MusicList />} />
