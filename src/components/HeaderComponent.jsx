@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 // const StyledLink = styled(Link)(({ theme }) => ({
 //   textDecoration: "none", // Remove underline by default
@@ -109,6 +110,11 @@ const DropdownMenu = () => {
 const Header = () => {
   const theme = useTheme();
 
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
   return (
     <section
       style={{
@@ -124,17 +130,34 @@ const Header = () => {
           style={{
             display: "flex",
             gap: "20px",
+            cursor: "pointer",
           }}
         >
-          <FirstLink href="/musiclist">All</FirstLink>
-          <StyledLink href="/featured">Trending Songs</StyledLink>
-          <StyledLink href="/newrelease">New Songs</StyledLink>
-          <StyledLink href="/musiclist">Old Songs</StyledLink>
+          <FirstLink onClick={() => handleNavigation("/musiclist")}>
+            All
+          </FirstLink>
+          <StyledLink onClick={() => handleNavigation("/featured")}>
+            Trending Songs
+          </StyledLink>
+          <StyledLink onClick={() => handleNavigation("/newrelease")}>
+            New Songs
+          </StyledLink>
+          <StyledLink onClick={() => handleNavigation("/musiclist")}>
+            Old Songs
+          </StyledLink>
           {/* <DropdownMenu /> */}
-          <StyledLink href="albums">Albums</StyledLink>
-          <StyledLink href="/musiclist">Radio</StyledLink>
-          <StyledLink href="/musiclist">Podcast</StyledLink>
-          <StyledLink href="/favourite">My Music</StyledLink>
+          <StyledLink onClick={() => handleNavigation("/albums")}>
+            Albums
+          </StyledLink>
+          <StyledLink onClick={() => handleNavigation("/musiclist")}>
+            Radio
+          </StyledLink>
+          <StyledLink onClick={() => handleNavigation("/musiclist")}>
+            Podcast
+          </StyledLink>
+          <StyledLink onClick={() => handleNavigation("/favourite")}>
+            My Music
+          </StyledLink>
         </nav>
       </Container>
     </section>

@@ -35,6 +35,7 @@ import Favourite from "./components/Favourite";
 import Login from "./components/auth/Login";
 import AnotherLogin from "./components/auth/AnotherLogin";
 import Signup from "./components/auth/Register";
+import FavWithoutLogin from "./components/withoutLogin/Fav";
 
 function App() {
   const dispatch = useDispatch();
@@ -154,7 +155,7 @@ function App() {
               <Route path="/audioplayer" element={<AudioPlayer />} />
               <Route path="/favourite" element={<Favourite />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route path="/alogin" element={<AnotherLogin />} /> */}
+              <Route path="/fav" element={<FavWithoutLogin />} />
               <Route path="/signup" element={<Signup />} />
             </Routes>
           </Container>

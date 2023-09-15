@@ -14,6 +14,8 @@ import { Avatar, Typography } from "@mui/material";
 import "../App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../Redux/actions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AudioPlayer = () => {
   const song = useSelector((state) => state.songReducer);
@@ -93,13 +95,19 @@ const AudioPlayer = () => {
   const AudioPlayerBackgroundColor =
     theme.palette.mode === "dark" ? "#1e1e1e" : "#fff";
 
+  const isLoggedIn = JSON.parse(localStorage.getItem("user"));
+
   const handleFav = () => {
-    if (isSongInFavorites(song, favouriteSongs)) {
-      dispatch(removeFavorite(song));
-      console.log("song removed from favorite");
+    if (!isLoggedIn) {
+      if (isSongInFavorites(song, favouriteSongs)) {
+        dispatch(removeFavorite(song));
+        console.log("song removed from favorite");
+      } else {
+        dispatch(addFavorite(song));
+        console.log("song added to favorite");
+      }
     } else {
-      dispatch(addFavorite(song));
-      console.log("song added to favorite");
+      toast.error("You are not logged in.");
     }
   };
 

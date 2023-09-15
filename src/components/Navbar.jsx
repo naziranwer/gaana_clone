@@ -20,11 +20,16 @@ import Brightness3OutlinedIcon from "@mui/icons-material/Brightness3Outlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import Login from "./auth/Login";
 import Signup from "./auth/Register";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = ({ toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [sideNavOpen, setSideNavOpen] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const isLoggedIn = JSON.parse(localStorage.getItem("user"));
+  console.log("islooged stats", isLoggedIn);
 
   const handleMenuClick = (event) => {
     console.log("menu clicked");
@@ -56,6 +61,12 @@ const NavBar = ({ toggleDarkMode }) => {
   const closeModal = () => {
     setShowLoginModal(false);
     setShowRegisterModal(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.setItem("user", null);
+    // navigate("/");
+    window.location.href = "/";
   };
 
   console.log(
@@ -201,14 +212,36 @@ const NavBar = ({ toggleDarkMode }) => {
               )}
             </button>
           </div>
-          <IconButton
-            color="inherit"
-            aria-label="profile"
-            onClick={openLoginModal}
-            cursor="pointer"
-          >
-            <AccountCircleIcon />
-          </IconButton>
+          {isLoggedIn ? (
+            <IconButton
+              color="inherit"
+              aria-label="profile"
+              onClick={handleMenuClick}
+              cursor="pointer"
+              style={{
+                color: theme.palette.mode === "dark" ? "#fff" : "#555",
+              }}
+            >
+              <AccountCircleIcon />
+            </IconButton>
+          ) : (
+            <div
+              // color={theme.palette.mode === "dark" ? "#fff" : "#000"}
+              aria-label="profile"
+              onClick={openLoginModal}
+              cursor="pointer"
+              style={{
+                boxSizing: "border-box",
+                border: "none",
+                fontSize: "12px",
+                cursor: "pointer",
+                color: theme.palette.mode === "dark" ? "#fff" : "#555",
+              }}
+            >
+              {/* <AccountCircleIcon /> */}
+              Login/Signup
+            </div>
+          )}
 
           {showLoginModal && (
             <Login
@@ -220,7 +253,7 @@ const NavBar = ({ toggleDarkMode }) => {
             <Signup openLoginModal={openLoginModal} closeModal={closeModal} />
           )}
 
-          {/* <Menu
+          <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
@@ -228,9 +261,9 @@ const NavBar = ({ toggleDarkMode }) => {
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>Languages</MenuItem>
             <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+            <MenuItem onClick={handleLogout}>Log Out</MenuItem>
             <MenuItem onClick={toggleDarkMode}>Night Mode</MenuItem>
-          </Menu> */}
+          </Menu>
         </div>
         {/* </Toolbar> */}
       </AppBar>

@@ -1,0 +1,14 @@
+.page {
+  text-align: left;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: calc(100vh - 134px);
+}
