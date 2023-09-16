@@ -135,7 +135,7 @@ function App() {
           <CssBaseline />
           <NavBar toggleDarkMode={toggleDarkMode} />
 
-          <Container className="full-width-container">
+          <Container className="full-width-container" maxWidth={false}>
             {/* <h1>Music App</h1> */}
             <ToastContainer />
             <Routes>

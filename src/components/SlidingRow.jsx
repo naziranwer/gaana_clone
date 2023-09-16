@@ -13,8 +13,12 @@ import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 
 const responsive = {
+  largeMonitor: {
+    breakpoint: { max: 3000, min: 1500 },
+    items: 7,
+  },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 1500, min: 1024 },
     items: 5,
   },
   tablet: {

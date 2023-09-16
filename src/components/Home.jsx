@@ -46,7 +46,7 @@ const Home = () => {
       {/* <SlidingCaraousel /> */}
       {musicData.status === "success" ? (
         <div>
-          {/* <SlidingCaraousel /> */}
+          <SlidingCaraousel />
           {/* <FeaturedSongs /> */}
           <SlidingRow
             array={featuredSongs}

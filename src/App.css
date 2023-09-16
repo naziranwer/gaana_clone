@@ -29,9 +29,12 @@
 }
 
 .full-width-container {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-left: 0px; /* Adjust as needed */
+  padding-right: 0px; /* Adjust as needed */
   width: 100%;
-  padding: 0; /* Remove default padding if necessary */
-  margin: 0;
+  max-width: initial;
 }
 /* ---------AudioPlayer CSS--------- */
 
