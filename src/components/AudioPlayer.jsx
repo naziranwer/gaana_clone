@@ -98,7 +98,7 @@ const AudioPlayer = () => {
   const isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   const handleFav = () => {
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
       if (isSongInFavorites(song, favouriteSongs)) {
         dispatch(removeFavorite(song));
         console.log("song removed from favorite");
