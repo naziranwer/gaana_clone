@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@mui/system";
-import { Container, Button, Box, Link, useTheme } from "@mui/material";
+import { Container, Box, Link } from "@mui/material";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
@@ -38,8 +38,6 @@ const StyledLink = styled(Link)(({ theme }) => ({
 }));
 
 const Footer = () => {
-  // console.log("localStorgage", localStorage.getItem("user").data);
-
   return (
     <FooterContainer>
       <Container>
@@ -52,18 +50,24 @@ const Footer = () => {
               Bollywood Music, English MP3 songs, Regional Music & Mirchi Play.
             </p>
           </RowContainer>
-          <div style={{ width: "80%", border: "1px solid #888" }}></div>
+          <div
+            style={{
+              width: "80%",
+              border: "1px solid #888",
+              marginBottom: "16px",
+            }}
+          ></div>
           <RowContainer
             style={{
-              height: "60px",
               display: "flex",
-              justifyContent: "space-between",
+              flexWrap: "wrap",
+              justifyContent: "center",
               gap: "20px",
               alignItems: "center",
             }}
           >
             <a
-              href="https://www.facebook.com/gaana.com"
+              href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -71,14 +75,14 @@ const Footer = () => {
                 style={{
                   fontSize: 32,
                   color: "#1877f2",
-                  transition: "color 0.3s ease", // Add transition for color change
+                  transition: "color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.target.style.color = "#135296")} // Change color on hover
-                onMouseLeave={(e) => (e.target.style.color = "#1877f2")} // Restore color on mouse leave
+                onMouseEnter={(e) => (e.target.style.color = "#135296")}
+                onMouseLeave={(e) => (e.target.style.color = "#1877f2")}
               />
             </a>
             <a
-              href="https://www.twitter.com/gaana"
+              href="https://www.twitter.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -86,17 +90,27 @@ const Footer = () => {
                 style={{
                   fontSize: 32,
                   color: "#1da1f2",
-                  transition: "color 0.3s ease", // Add transition for color change
+                  transition: "color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.target.style.color = "#1665b9")} // Change color on hover
-                onMouseLeave={(e) => (e.target.style.color = "#1da1f2")} // Restore color on mouse leave
+                onMouseEnter={(e) => (e.target.style.color = "#1665b9")}
+                onMouseLeave={(e) => (e.target.style.color = "#1da1f2")}
               />
             </a>
           </RowContainer>
-          <div style={{ width: "80%", border: "1px solid #888" }}></div>
-
+          <div
+            style={{
+              width: "80%",
+              border: "1px solid #888",
+              marginBottom: "16px",
+            }}
+          ></div>
           <RowContainer>
-            <Box display="flex" justifyContent="space-between" gap="20px">
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap="16px"
+            >
               <StyledLink href="https://ads.gaana.com/" target="_blank">
                 Advertise on Gaana.com
               </StyledLink>
@@ -120,14 +134,15 @@ const Footer = () => {
               </StyledLink>
             </Box>
           </RowContainer>
-          <div style={{ width: "80%", border: "1px solid #888" }}></div>
-
-          {/* Add other rows as needed */}
+          <div
+            style={{
+              width: "80%",
+              border: "1px solid #888",
+              marginBottom: "16px",
+            }}
+          ></div>
         </InnerContainer>
-        <CopyrightText>
-          &copy; Gamma Gaana Ltd. {new Date().getFullYear()}, All Rights
-          Reserved
-        </CopyrightText>
+        <CopyrightText>© 2023 Gaana. All Rights Reserved</CopyrightText>
       </Container>
     </FooterContainer>
   );

@@ -12,15 +12,6 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-// const StyledLink = styled(Link)(({ theme }) => ({
-//   textDecoration: "none", // Remove underline by default
-//   color: "inherit", // Inherit text color from parent element
-//   "&:hover": {
-//     textDecoration: "underline", // Add underline on hover
-//     textDecorationColor: "red", // Customize the underline color
-//   },
-// }));
-
 const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none", // Remove underline by default
   color: "inherit", // Inherit text color from parent element
@@ -123,12 +114,15 @@ const Header = () => {
         padding: "10px 0",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Container maxWidth="lg">
         <nav
           style={{
             display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
             gap: "20px",
             cursor: "pointer",
           }}

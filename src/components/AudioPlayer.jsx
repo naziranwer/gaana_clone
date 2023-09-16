@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Slider from "@mui/material/Slider";
 import IconButton from "@mui/material/IconButton";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -39,6 +39,23 @@ const AudioPlayer = () => {
   const theme = useTheme();
 
   const audioRef = useRef(null);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Function to update isMobile based on window width
+  const updateIsMobile = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  useEffect(() => {
+    // Add a listener for window resize events
+    window.addEventListener("resize", updateIsMobile);
+
+    // Remove the listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", updateIsMobile);
+    };
+  }, []);
 
   const togglePlay = () => {
     const audioElement = audioRef.current;
@@ -117,7 +134,8 @@ const AudioPlayer = () => {
       style={{
         position: "fixed",
         width: "100%",
-        height: "100px",
+        // height: "100px",
+        height: isMobile ? "150px" : "100px",
         // bottom: 10,
         left: 0,
         right: 0,
@@ -152,12 +170,20 @@ const AudioPlayer = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          gap: "100px",
-          marginBottom: "50px",
+          justifyContent: "space-between",
+          gap: isMobile ? "5px" : "100px",
+          // marginBottom: "50px",
+          marginBottom: isMobile ? "20px" : "0",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            // marginLeft: isMobile ? "0" : "16px",
+          }}
+        >
           <Avatar alt="Song Avatar" src={song.thumbnail} />
           <div style={{ marginLeft: "16px" }}>
             <Typography variant="subtitle1">{song?.title}</Typography>
@@ -207,7 +233,7 @@ const AudioPlayer = () => {
             <div
               style={{
                 position: "absolute",
-                bottom: "80%", // Position below the volume icon
+                bottom: isMobile ? "80%" : "100%", // Position below the volume icon
                 left: "50%", // Center horizontally
                 transform: "translateX(-50%)", // Center horizontally
                 zIndex: 9999, // Set a high z-index to appear over other elements

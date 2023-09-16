@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -30,6 +30,23 @@ const NavBar = ({ toggleDarkMode }) => {
 
   const isLoggedIn = JSON.parse(localStorage.getItem("user"));
   console.log("islooged stats", isLoggedIn);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Function to update isMobile based on window width
+  const updateIsMobile = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  useEffect(() => {
+    // Add a listener for window resize events
+    window.addEventListener("resize", updateIsMobile);
+
+    // Remove the listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", updateIsMobile);
+    };
+  }, []);
 
   const handleMenuClick = (event) => {
     console.log("menu clicked");
@@ -132,7 +149,7 @@ const NavBar = ({ toggleDarkMode }) => {
             </div>
           </Typography>
         </div>
-        <div style={{ display: "flex", marginRight: "400px" }}>
+        <div style={{ display: isMobile ? "none" : "flex" }}>
           <SearchBar />
         </div>
         <div
