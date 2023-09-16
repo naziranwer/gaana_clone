@@ -38,7 +38,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
 }));
 
 const Footer = () => {
-  console.log("localStorgage", localStorage.getItem("user").data);
+  // console.log("localStorgage", localStorage.getItem("user").data);
 
   return (
     <FooterContainer>
