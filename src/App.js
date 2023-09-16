@@ -36,6 +36,7 @@ import Login from "./components/auth/Login";
 import AnotherLogin from "./components/auth/AnotherLogin";
 import Signup from "./components/auth/Register";
 import FavWithoutLogin from "./components/withoutLogin/Fav";
+import NotFound from "./components/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -139,6 +140,7 @@ function App() {
             <ToastContainer />
             <Routes>
               <Route path="/" exact element={<Home />} />
+              <Route path="*" element={<NotFound />} />
               <Route path="/musiclist" exact element={<MusicList />} />
               <Route path="/albums" element={<Album />} />
               <Route path="/nav" element={<NavBar />} />

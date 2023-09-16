@@ -45,28 +45,28 @@ const SlidingCaraousel = () => {
           >
             <li class="slide animate">
               <div style={{ margin: "10px" }}>
-                <a
+                {/* <a
                   class="_a default_bg"
                   aria-label="banner images"
                   href="/playlist/gaana-dj-bollywood-drive"
-                >
-                  <picture>
-                    <source
-                      srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_l_1663939645.webp"
-                      media="(min-width: 1420px)"
-                    />
-                    <source
-                      srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_m_1663939645.webp"
-                      media="(min-width: 992px)"
-                    />
-                    <source srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_s_1663939645.webp" />
-                    <img
-                      srcset="https://a10.gaanacdn.com/images/showcase/1663939645_12419.jpg"
-                      alt="Ultimate Drive"
-                      title="Ultimate Drive"
-                    />
-                  </picture>
-                </a>
+                > */}
+                <picture>
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_l_1663939645.webp"
+                    media="(min-width: 1420px)"
+                  />
+                  <source
+                    srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_m_1663939645.webp"
+                    media="(min-width: 992px)"
+                  />
+                  <source srcset="https://a10.gaanacdn.com/gn_img/showcase/Bp1bAnK029/p1bADvJW02/size_s_1663939645.webp" />
+                  <img
+                    srcset="https://a10.gaanacdn.com/images/showcase/1663939645_12419.jpg"
+                    alt="Ultimate Drive"
+                    title="Ultimate Drive"
+                  />
+                </picture>
+                {/* </a> */}
               </div>
             </li>
             <li class="slide animate">
