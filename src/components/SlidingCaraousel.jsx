@@ -6,15 +6,15 @@ import "./Album.css";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    items: 1,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1440, min: 464 },
     items: 2,
   },
   smartphone: {
     breakpoint: { max: 824, min: 464 },
-    items: 1,
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },

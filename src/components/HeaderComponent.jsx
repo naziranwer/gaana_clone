@@ -122,7 +122,7 @@ const Header = () => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
+            // justifyContent: "center",
             gap: "20px",
             cursor: "pointer",
           }}

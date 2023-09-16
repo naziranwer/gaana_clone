@@ -83,7 +83,7 @@ const SlidingRow = ({ array, heading, path }) => {
               sm={4}
               md={3}
               lg={2}
-              onClick={() => itemClick(item)}
+              //   onClick={() => itemClick(item)}
             >
               <Card>
                 <CardMedia
