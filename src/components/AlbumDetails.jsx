@@ -12,6 +12,8 @@ import {
   Button,
   ListItemAvatar,
   Avatar,
+  Grid,
+  Box,
   IconButton,
 } from "@mui/material";
 import { PlayArrow } from "@mui/icons-material";
@@ -66,35 +68,51 @@ export const AlbumDetails = () => {
 
       <List>
         {albumSongs.map((song, index) => (
+          // <ListItem key={song._id} onClick={() => handleSongClick(song)}>
+          //   <ListItemAvatar>
+          //     <Avatar src={song.thumbnail} alt={song.title} />
+
+          //     <IconButton
+          //       style={{
+          //         position: "absolute",
+          //         backgroundColor: "white",
+          //         borderRadius: "50%",
+          //         top: "50%",
+          //         left: "50%",
+          //         transform: "translate(-50%, -50%)",
+          //       }}
+          //     >
+          //       <PlayArrow style={{ color: "black" }} />{" "}
+          //     </IconButton>
+          //   </ListItemAvatar>
+          //   <ListItemText
+          //     primary={song.title}
+          //     secondary={artistNamesArray[index]}
+          //   />
+          // </ListItem>
+
           <ListItem key={song._id} onClick={() => handleSongClick(song)}>
-            <ListItemAvatar>
-              {/* Add your song image here */}
-              <Avatar src={song.thumbnail} alt={song.title} />
-              {/* Add a white color icon over the image */}
-              <IconButton
-                style={{
-                  position: "absolute",
-                  backgroundColor: "white",
-                  borderRadius: "50%",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <PlayArrow style={{ color: "black" }} />{" "}
-                {/* Adjust icon color */}
-              </IconButton>
-            </ListItemAvatar>
-            <ListItemText
-              primary={song.title}
-              secondary={artistNamesArray[index]}
-            />
-            {/* {song && (
-              // <audio controls>
-              //   <source src={song?.audio_url} type="audio/mp4" />
-              // </audio>
-              <AudioPlayer song={song} />
-            )} */}
+            <Grid container spacing={2} alignItems="center">
+              <Grid item>
+                <Avatar src={song.thumbnail} alt={song.title} />
+              </Grid>
+              <Grid item xs={6}>
+                <ListItemText
+                  primary={song.title}
+                  secondary={artistNamesArray[index]}
+                />
+              </Grid>
+              <Grid item>
+                <IconButton
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: "50%",
+                  }}
+                >
+                  <PlayArrow style={{ color: "black" }} />
+                </IconButton>
+              </Grid>
+            </Grid>
           </ListItem>
         ))}
       </List>

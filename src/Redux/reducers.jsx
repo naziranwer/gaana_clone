@@ -57,6 +57,19 @@ const favouriteSongs = (state = [], action) => {
   }
 };
 
+const audioReducer = (state = { isPlaying: false }, action) => {
+  switch (action.type) {
+    case "SET_IS_PLAYING":
+      return {
+        ...state,
+        isPlaying: action.payload,
+      };
+    // ...other reducer cases
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   artistData: artistReducer,
   albumData: albumReducer,
@@ -64,6 +77,7 @@ const rootReducer = combineReducers({
   songReducer: songReducer,
   searchTerm: searchTerm,
   favouriteSongs: favouriteSongs,
+  audio: audioReducer,
 });
 
 // Store

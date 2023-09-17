@@ -8,6 +8,7 @@ export const SET_SONG_DATA = "SET_SONG_DATA";
 export const SET_SEARCH_TERM = "SET_SEARCH_TERM";
 export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
+export const SET_IS_PLAYING = "SET_IS_PLAYING";
 
 // Action creators
 export const setArtistData = (data) => {
@@ -54,3 +55,10 @@ export const removeFavorite = (song) => ({
   type: REMOVE_FAV,
   payload: song,
 });
+
+export const setIsPlaying = (isPlaying) => {
+  return {
+    type: SET_IS_PLAYING,
+    payload: isPlaying,
+  };
+};

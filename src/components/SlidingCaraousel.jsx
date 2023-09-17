@@ -6,7 +6,7 @@ import "./Album.css";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1,
+    items: 2,
   },
   tablet: {
     breakpoint: { max: 1440, min: 464 },

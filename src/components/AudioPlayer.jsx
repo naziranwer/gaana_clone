@@ -13,14 +13,16 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import { Avatar, Typography } from "@mui/material";
 import "../App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../Redux/actions";
+import { addFavorite, removeFavorite, setIsPlaying } from "../Redux/actions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const AudioPlayer = () => {
   const song = useSelector((state) => state.songReducer);
   const dispatch = useDispatch();
   const favouriteSongs = useSelector((state) => state.favouriteSongs);
+  const isPlaying = useSelector((state) => state.audio.isPlaying);
 
   console.log("favourite Songs", favouriteSongs);
 
@@ -33,7 +35,7 @@ const AudioPlayer = () => {
 
   console.log("audio player renders", song);
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [volume, setVolume] = useState(0.5);
   const theme = useTheme();
@@ -61,10 +63,12 @@ const AudioPlayer = () => {
     const audioElement = audioRef.current;
     if (isPlaying) {
       audioElement.pause();
+      dispatch(setIsPlaying(false));
     } else {
       audioElement.play();
+      dispatch(setIsPlaying(true));
     }
-    setIsPlaying(!isPlaying);
+    // dispatch(setIsPlaying(!isPlaying));
   };
 
   const handleTimeUpdate = () => {
@@ -72,20 +76,8 @@ const AudioPlayer = () => {
     setCurrentTime(audioElement.currentTime);
   };
 
-  // const handleVolumeChange = (event, newValue) => {
-  //   const audioElement = audioRef.current;
-  //   console.log("volume value", newValue);
-  //   const normalisedValue = newValue / 100;
-  //   audioElement.volume = normalisedValue;
-  //   setVolume(normalisedValue);
-
-  //   console.log("volume Normalised value", normalisedValue);
-  // };
-
   const handleVolumeChange = (event, newValue) => {
     if (isNaN(newValue) || !isFinite(newValue)) {
-      // Handle the case where newValue is not a valid number.
-      // You can log an error or perform some default action.
       return;
     }
     console.log("volume value", newValue);
@@ -128,6 +120,22 @@ const AudioPlayer = () => {
     }
   };
 
+  console.log("isPlaying status", isPlaying, "audioref");
+
+  useEffect(() => {
+    const audioElement = audioRef.current;
+
+    // Reset slider and play audio when song changes
+    setCurrentTime(0); // Reset slider
+    if (song && audioElement) {
+      audioElement.src = song.audio_url; // Set new audio source
+      audioElement.load(); // Load the new audio source
+      if (isPlaying) {
+        audioElement.play(); // Start playing if it was playing before
+      }
+    }
+  }, [song]);
+
   return (
     <div
       className="audio-player-bar"
@@ -151,7 +159,7 @@ const AudioPlayer = () => {
         ref={audioRef}
         src={song?.audio_url}
         onTimeUpdate={handleTimeUpdate}
-        autoPlay
+        // autoPlay
       />
       <div style={{ width: "100%" }}>
         <Slider

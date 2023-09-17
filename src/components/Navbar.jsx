@@ -8,6 +8,7 @@ import {
   Menu,
   MenuItem,
   useTheme,
+  Avatar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -112,7 +113,7 @@ const NavBar = ({ toggleDarkMode }) => {
             display: "flex",
             alignItems: "center",
             gap: "5px",
-            marginLeft: "5px",
+            marginLeft: "15px",
           }}
         >
           <IconButton
@@ -154,7 +155,12 @@ const NavBar = ({ toggleDarkMode }) => {
         </div>
         <div
           className="rt sm-hide"
-          style={{ display: "flex", alignItems: "center", gap: "10px" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            marginRight: "15px",
+          }}
         >
           <a
             href="https://gaana.com/subscribe/buy-gaana-plus?udf=dw_topbar_GetGaanaPlus"
@@ -239,7 +245,15 @@ const NavBar = ({ toggleDarkMode }) => {
                 color: theme.palette.mode === "dark" ? "#fff" : "#555",
               }}
             >
-              <AccountCircleIcon />
+              <Avatar
+                src="https://img.freepik.com/free-photo/woman-with-long-hair-yellow-hoodie-with-word-music-it_1340-39068.jpg?t=st=1694960561~exp=1694964161~hmac=5e28a6439d727f86fc654fe28a6acbdaa4630accec54eab003fb0e1aef1bac44&w=826" // Replace with your image URL
+                alt="Profile Image"
+                style={{
+                  width: 30, // Adjust the width and height as needed
+                  height: 30,
+                  borderRadius: "50%", // Makes the image round like the Avatar
+                }}
+              />
             </IconButton>
           ) : (
             <div
