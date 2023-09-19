@@ -57,7 +57,7 @@ function Signup({ openLoginModal, closeModal }) {
 
   return (
     <section className="model-open">
-      <div className="inner cent-pp login_pp ">
+      <div className="linner cent-pp login_pp ">
         <button className="close" aria-label="close" onClick={closeModal}>
           <svg width="17" height="17" viewBox="0 0 17 17">
             <path

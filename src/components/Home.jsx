@@ -63,7 +63,7 @@ const Home = () => {
           <SlidingRow
             array={romanticSongs}
             heading={"Romantic Songs"}
-            path={"/musiclist"}
+            path={"romance"}
           />
         </div>
       ) : (
