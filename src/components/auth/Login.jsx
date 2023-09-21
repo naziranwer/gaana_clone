@@ -97,7 +97,7 @@ function Login({ openRegisterModal, closeModal }) {
               <input
                 id="loginId"
                 type="text"
-                placeholder="Enter Email or Mobile number"
+                placeholder="Enter Your Email Id"
                 maxLength="80"
                 autoFocus=""
                 onChange={(e) => setEmail(e.target.value)}
