@@ -20,6 +20,34 @@
   flex-grow: 1;
 }
 
+/* palyIcon css */
+
+/* Album.css */
+.play-icon-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 40%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  opacity: 0;
+  /* transition: opacity 0.1s ease-in-out, background-color 0.1s ease-in-out; */
+  border-radius: 50%;
+}
+
+.play-icon-container:hover {
+  opacity: 1;
+}
+
+.play-icon {
+  font-size: 2em;
+}
+
 @media (max-width: 768px) {
   .album-grid {
     justify-content: flex-start;

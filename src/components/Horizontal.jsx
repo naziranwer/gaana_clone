@@ -60,7 +60,21 @@ const Row = () => {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <h1>Featured Artists</h1>
           <span
-            style={{ marginTop: "auto", color: "red" }}
+            style={{
+              marginTop: "auto",
+              cursor: "pointer",
+              color: "red",
+              transition: "color 0.3s, font-size 0.3s", // Add transition for a smooth effect
+              fontSize: "16px", // Set the initial font size
+            }}
+            onMouseOver={(e) => {
+              e.target.style.color = "lightcoral"; // Change color on hover
+              e.target.style.fontSize = "14px"; // Decrease font size on hover
+            }}
+            onMouseOut={(e) => {
+              e.target.style.color = "red"; // Reset color on mouse out
+              e.target.style.fontSize = "16px"; // Reset font size on mouse out
+            }}
             onClick={navigation}
           >
             See All
@@ -91,7 +105,7 @@ const Row = () => {
               lg={2}
               onClick={() => artistClick(artist)}
             >
-              <Card>
+              <Card style={{ cursor: "pointer" }}>
                 <CardMedia
                   component="img"
                   height="140"
