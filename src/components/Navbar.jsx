@@ -163,8 +163,8 @@ const NavBar = ({ toggleDarkMode }) => {
           }}
         >
           <a
-            href="https://gaana.com/subscribe/buy-gaana-plus?udf=dw_topbar_GetGaanaPlus"
-            target="_blank"
+            href="/subscription"
+            // target="_blank"
             className={
               theme.palette.mode === "dark" ? "gplusdark" : "gplus mr60"
             }

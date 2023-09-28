@@ -37,6 +37,8 @@ import AnotherLogin from "./components/auth/AnotherLogin";
 import Signup from "./components/auth/Register";
 import FavWithoutLogin from "./components/withoutLogin/Fav";
 import NotFound from "./components/NotFound";
+import Subscription from "./components/Subscription";
+import PaymentPage from "./components/Payment";
 
 function App() {
   const dispatch = useDispatch();
@@ -134,7 +136,6 @@ function App() {
         <BrowserRouter>
           <CssBaseline />
           <NavBar toggleDarkMode={toggleDarkMode} />
-
           <Container className="full-width-container" maxWidth={false}>
             {/* <h1>Music App</h1> */}
             <ToastContainer />
@@ -159,6 +160,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/fav" element={<FavWithoutLogin />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/subscription" element={<Subscription />} />
+              <Route path="/payment" element={<PaymentPage />} />
             </Routes>
           </Container>
         </BrowserRouter>
