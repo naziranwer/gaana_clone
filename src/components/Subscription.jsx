@@ -11,18 +11,8 @@ const Subscription = () => {
     setSelectedDuration(duration);
   };
 
-  // const handleBuyNowClick = () => {
-  //   // Handle the "BUY NOW" button click action here
-  //   if (selectedDuration) {
-  //     alert(`You have selected ${selectedDuration}`);
-  //     // You can add further logic here, such as navigating to a payment page.
-  //   } else {
-  //     alert("Please select a subscription duration before proceeding.");
-  //   }
-  // };
-
   const containerStyle = {
-    height: "50vh",
+    // height: "50vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -30,8 +20,8 @@ const Subscription = () => {
   };
 
   const imageStyle = {
-    height: "25vh",
-    width: "108%",
+    height: "35vh",
+    width: "105%",
     padding: "2px",
   };
 
@@ -75,9 +65,6 @@ const Subscription = () => {
 
   return (
     <div style={containerStyle}>
-      <br />
-      <br />
-      <br />
       <img src={subscriptionImage} alt="Image Alt Text" style={imageStyle} />
       <div className="plan-option" style={checkboxContainerStyle}>
         {/* Checkbox for 1 month */}
@@ -116,7 +103,7 @@ const Subscription = () => {
               checked={selectedDuration === "1Year"}
               onChange={() => handleDurationChange("1Year")}
             />
-            1 Year Gaana Plus Gaana Plus &#8377;299
+            1 Year Gaana Plus Gaana Plus &#8377;399
           </label>
         </div>
       </div>
