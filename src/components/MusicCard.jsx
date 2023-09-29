@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
 import "./Album.css";
 import { useDispatch } from "react-redux";
@@ -6,11 +6,14 @@ import { setOneSongData } from "../Redux/actions";
 
 const MusicCard = ({ data }) => {
   const dispatch = useDispatch();
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleClick = (e) => {
     dispatch(setOneSongData(e));
     console.log("music card clicked and dispatched song", e);
   };
+
+  console.log("hovered index", hoveredIndex);
   return (
     <div>
       <Grid container spacing={2} className="album-grid">
@@ -23,6 +26,7 @@ const MusicCard = ({ data }) => {
             md={3}
             lg={2}
             onClick={() => handleClick(song)}
+            style={{ cursor: "pointer" }}
           >
             <Card>
               <CardMedia

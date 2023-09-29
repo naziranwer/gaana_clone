@@ -36,6 +36,7 @@ const SearchMusicCard = ({ data }) => {
             lg={columns} // 2 or 3 cards per row based on screen size
             onClick={() => handleClick(song)}
             className="music-card"
+            style={{ cursor: "pointer" }}
           >
             <Card style={{ paddingBottom: "56.25%", height: "100px" }}>
               <CardMedia

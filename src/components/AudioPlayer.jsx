@@ -7,6 +7,7 @@ import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffOutlinedIcon from "@mui/icons-material/VolumeOffOutlined";
 import { useTheme } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -17,6 +18,7 @@ import { addFavorite, removeFavorite, setIsPlaying } from "../Redux/actions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { VolumeOffOutlined } from "@mui/icons-material";
 
 const AudioPlayer = () => {
   const song = useSelector((state) => state.songReducer);
@@ -88,6 +90,8 @@ const AudioPlayer = () => {
     const normalisedValue = clampedValue / 100;
     audioElement.volume = normalisedValue;
     setVolume(normalisedValue);
+
+    // setIsMuted(normalisedValue === 0);
     console.log("volume Normalised value", normalisedValue);
   };
 
@@ -96,9 +100,15 @@ const AudioPlayer = () => {
     audioElement.currentTime += seconds;
   };
   const [isVolumeSliderVisible, setVolumeSliderVisible] = useState(false);
+  const [isVolumeControlActive, setIsVolumeControlActive] = useState(false);
 
-  const toggleVolumeSlider = () => {
-    setVolumeSliderVisible(!isVolumeSliderVisible);
+  const showVolumeSlider = () => {
+    setVolumeSliderVisible(true);
+    setIsVolumeControlActive(true);
+  };
+  const hideVolumeSlider = () => {
+    setVolumeSliderVisible(false);
+    setIsVolumeControlActive(false);
   };
 
   const AudioPlayerBackgroundColor =
@@ -135,6 +145,14 @@ const AudioPlayer = () => {
       }
     }
   }, [song]);
+
+  const [isMuted, setIsMuted] = useState(false);
+
+  const toggleMute = () => {
+    const audioElement = audioRef.current;
+    audioElement.muted = !audioElement.muted;
+    setIsMuted(!isMuted);
+  };
 
   return (
     <div
@@ -239,6 +257,8 @@ const AudioPlayer = () => {
         >
           {isVolumeSliderVisible && (
             <div
+              onMouseEnter={showVolumeSlider}
+              onMouseLeave={hideVolumeSlider}
               style={{
                 position: "absolute",
                 bottom: isMobile ? "80%" : "100%", // Position below the volume icon
@@ -248,7 +268,7 @@ const AudioPlayer = () => {
               }}
             >
               <Slider
-                value={volume * 100}
+                value={isMuted ? 0 : volume * 100}
                 onChange={handleVolumeChange}
                 aria-label="volume slider"
                 max={100}
@@ -264,8 +284,13 @@ const AudioPlayer = () => {
               />
             </div>
           )}
-          <IconButton onClick={toggleVolumeSlider}>
-            <VolumeUpIcon />
+          <IconButton
+            onMouseEnter={showVolumeSlider}
+            onMouseLeave={hideVolumeSlider}
+            onClick={toggleMute}
+          >
+            {/* <VolumeUpIcon /> */}
+            {isMuted || volume === 0 ? <VolumeOffOutlined /> : <VolumeUpIcon />}
           </IconButton>
         </div>
       </div>
