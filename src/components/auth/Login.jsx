@@ -120,7 +120,14 @@ function Login({ openRegisterModal, closeModal }) {
             </button>
             <div style={{ marginTop: "25px" }}>
               <small>Not have an account?</small>
-              <button onClick={handleRegister} style={{ marginTop: "5px" }}>
+              <button
+                onClick={handleRegister}
+                style={{
+                  marginTop: "5px",
+                  borderRadius: "10%",
+                  padding: "5px",
+                }}
+              >
                 Register Here
               </button>
             </div>
