@@ -119,12 +119,20 @@ const Header = () => {
     >
       <Container maxWidth="lg">
         <nav
+          // style={{
+          //   display: "flex",
+          //   flexWrap: "wrap",
+          //   // justifyContent: "center",
+          //   gap: "20px",
+          //   cursor: "pointer",
+          // }}
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            // justifyContent: "center",
             gap: "20px",
             cursor: "pointer",
+            overflowX: "auto", // Enable horizontal scrolling
+            WebkitOverflowScrolling: "touch", // Enable smooth scrolling on iOS
+            scrollbarWidth: "thin", // Adjust scrollbar width (optional)
           }}
         >
           <FirstLink onClick={() => handleNavigation("/musiclist")}>

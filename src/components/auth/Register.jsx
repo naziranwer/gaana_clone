@@ -125,9 +125,9 @@ function Signup({ openLoginModal, closeModal }) {
             >
               Continue
             </button>
-            <div style={{ marginTop: "50px" }}>
+            <div style={{ marginTop: "25px" }}>
               <small>Already have an account?</small>
-              <button onClick={handleLogin} style={{ marginTop: "10px" }}>
+              <button onClick={handleLogin} style={{ marginTop: "5px" }}>
                 Login Here
               </button>
             </div>

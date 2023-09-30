@@ -118,7 +118,7 @@ small {
   color: #8e8e93;
   font-size: 15px;
   width: 100%;
-  padding: 3px 0;
+  padding: 10px 0;
   margin-bottom: 5px;
   border-radius: 5px;
   text-align: center;
@@ -157,8 +157,28 @@ small {
   display: flex !important;
 }
 
-@media (max-width: 968px) {
+@media screen and (max-width: 1024px) {
+  .linner {
+    width: 70%;
+  }
+
+  .userInputarea {
+    width: 100%;
+  }
+
   .col_poster {
-    display: none; /* Hide it on screens with a width of 768px or smaller */
+    display: none; /* Hide the poster column on smaller screens */
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .linner {
+    width: 90%;
+  }
+
+  .close {
+    top: 10px;
+    right: 10px;
   }
 }
