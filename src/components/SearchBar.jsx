@@ -12,12 +12,12 @@ const SearchContainer = styled("div")(({ theme }) => ({
   alignItems: "center",
   backgroundColor: theme.palette.mode === "dark" ? "#1e1e1e" : "#fff",
   borderRadius: "40px",
-  width: "100%",
-  maxWidth: "1500px",
+  // width: "10%",
+  // maxWidth: "1500px",
   margin: "0 auto",
   height: "40px",
   [theme.breakpoints.up("md")]: {
-    width: "450px",
+    width: "550px",
   },
 }));
 

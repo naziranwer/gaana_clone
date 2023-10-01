@@ -16,14 +16,16 @@ import {
   Box,
   IconButton,
 } from "@mui/material";
-import { PlayArrow } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
-import { setOneSongData } from "../Redux/actions";
+import { Pause, PlayArrow } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { setOneSongData, setIsPlaying } from "../Redux/actions";
 
 export const AlbumDetails = () => {
   const location = useLocation();
   const album = location.state;
   const dispatch = useDispatch();
+  const isPlaying = useSelector((state) => state.audio.isPlaying);
+  const songInPlayer = useSelector((state) => state.songReducer);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(null);
 
@@ -43,6 +45,7 @@ export const AlbumDetails = () => {
 
   const handleSongClick = (e) => {
     dispatch(setOneSongData(e));
+    // const audioElement = audioRef.current;
   };
 
   return (
@@ -109,7 +112,11 @@ export const AlbumDetails = () => {
                     borderRadius: "50%",
                   }}
                 >
-                  <PlayArrow style={{ color: "black" }} />
+                  {isPlaying && song._id === songInPlayer._id ? (
+                    <Pause style={{ color: "black" }} />
+                  ) : (
+                    <PlayArrow style={{ color: "black" }} />
+                  )}
                 </IconButton>
               </Grid>
             </Grid>

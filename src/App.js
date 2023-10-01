@@ -165,7 +165,7 @@ function App() {
             </Routes>
           </Container>
         </BrowserRouter>
-        <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br />
         <Footer />
         <br /> <br /> <br />
         <AudioPlayer />

@@ -90,6 +90,7 @@
 .gplus {
   display: inline-block;
   color: #e72c30;
+  white-space: nowrap;
 
   /* color: #fff; */
   padding: 6px 15px;
@@ -100,6 +101,7 @@
 }
 .gplusdark {
   display: inline-block;
+  white-space: nowrap;
   color: #000;
   background-color: #fff;
 

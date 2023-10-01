@@ -16,6 +16,8 @@ const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none", // Remove underline by default
   color: "inherit", // Inherit text color from parent element
   position: "relative", // Required for pseudo-element positioning
+  whiteSpace: "nowrap",
+  display: "inline-block",
   "&::before": {
     content: '""',
     position: "absolute",
@@ -37,6 +39,8 @@ const FirstLink = styled(StyledLink)({
   "&::before": {
     width: "100%", // Set a fixed width for the underline
     transition: "none", // Remove transition on hover
+    whiteSpace: "nowrap",
+    display: "inline-block",
   },
 });
 
@@ -138,7 +142,10 @@ const Header = () => {
           <FirstLink onClick={() => handleNavigation("/musiclist")}>
             All
           </FirstLink>
-          <StyledLink onClick={() => handleNavigation("/featured")}>
+          <StyledLink
+            onClick={() => handleNavigation("/featured")}
+            // style={{ display: "inline-block", whiteSpace: "nowrap" }}
+          >
             Trending Songs
           </StyledLink>
           <StyledLink onClick={() => handleNavigation("/newrelease")}>

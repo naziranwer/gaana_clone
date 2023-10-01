@@ -194,9 +194,10 @@ const AudioPlayer = () => {
       </div>
       <div
         style={{
+          width: "80%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
           gap: isMobile ? "5px" : "100px",
           // marginBottom: "50px",
           marginBottom: isMobile ? "20px" : "0",
@@ -204,17 +205,20 @@ const AudioPlayer = () => {
       >
         <div
           style={{
+            flex: 1,
             display: "flex",
             alignItems: "center",
-            gap: "10px",
+            // gap: "10px",
             // marginLeft: isMobile ? "0" : "16px",
           }}
         >
           <Avatar alt="Song Avatar" src={song.thumbnail} />
-          <div style={{ marginLeft: "16px" }}>
-            <Typography variant="subtitle1">{song?.title}</Typography>
-          </div>
-          <div style={{ marginLeft: "auto" }}>
+          {!isMobile && (
+            <div style={{ marginLeft: "16px" }}>
+              <Typography variant="subtitle1">{song?.title}</Typography>
+            </div>
+          )}
+          <div style={{ marginLeft: "5px" }}>
             <IconButton onClick={handleFav}>
               {isSongInFavorites(song, favouriteSongs) ? (
                 <FavoriteIcon style={{ color: "#E72C30" }} />
@@ -227,7 +231,7 @@ const AudioPlayer = () => {
 
         <div
           style={{
-            flex: 2,
+            flex: 1,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -249,6 +253,7 @@ const AudioPlayer = () => {
         </div>
         <div
           style={{
+            flex: 1,
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
@@ -260,9 +265,9 @@ const AudioPlayer = () => {
               onMouseEnter={showVolumeSlider}
               onMouseLeave={hideVolumeSlider}
               style={{
-                position: "absolute",
-                bottom: isMobile ? "80%" : "100%", // Position below the volume icon
-                left: "50%", // Center horizontally
+                position: "fixed",
+                bottom: isMobile ? "12%" : "8%", // Position below the volume icon
+                right: "10%", // Center horizontally
                 transform: "translateX(-50%)", // Center horizontally
                 zIndex: 9999, // Set a high z-index to appear over other elements
               }}
