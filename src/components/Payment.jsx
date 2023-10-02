@@ -17,7 +17,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import subscriptionImage from "./assets/subscription.png";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const containerStyle = {
   display: "flex",
@@ -62,6 +62,12 @@ const PaymentForm = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const isLoggedIn = JSON.parse(localStorage.getItem("user"));
+
+  const selectedDuration = location.state;
+
+  console.log("Selected Duration: ", selectedDuration);
 
   const checkCardDetails = () => {
     // Your card payment logic here
@@ -75,6 +81,7 @@ const PaymentForm = () => {
           navigate("/");
         }, 4000);
       }, 10000);
+      localStorage.setItem(`${isLoggedIn.data.email}`, selectedDuration);
     }
   };
 
@@ -90,6 +97,7 @@ const PaymentForm = () => {
           navigate("/");
         }, 4000);
       }, 10000);
+      localStorage.setItem(`${isLoggedIn.data.email}`, selectedDuration);
     }
   };
 

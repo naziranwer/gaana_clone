@@ -22,6 +22,7 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import Login from "./auth/Login";
 import Signup from "./auth/Register";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NavBar = ({ toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -30,6 +31,8 @@ const NavBar = ({ toggleDarkMode }) => {
   const navigate = useNavigate();
 
   const isLoggedIn = JSON.parse(localStorage.getItem("user"));
+  const subscriptionDuration = localStorage.getItem(`${isLoggedIn.data.email}`);
+
   console.log("islooged stats", isLoggedIn);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -94,6 +97,11 @@ const NavBar = ({ toggleDarkMode }) => {
     showRegisterModal
   );
 
+  const handleSubscription = () => {
+    if (isLoggedIn) {
+      navigate("/subscription");
+    } else toast.error("You must be logged in");
+  };
   return (
     <>
       <AppBar
@@ -163,13 +171,17 @@ const NavBar = ({ toggleDarkMode }) => {
           }}
         >
           <a
-            href="/subscription"
+            // href="/subscription"
             // target="_blank"
             className={
               theme.palette.mode === "dark" ? "gplusdark" : "gplus mr60"
             }
+            onClick={handleSubscription}
+            style={{ cursor: "pointer" }}
           >
-            Get Gaana Plus
+            {subscriptionDuration === null
+              ? "Get Gaana Plus"
+              : "Renew Gaana Plus"}
           </a>
           {!isMobile && (
             <>

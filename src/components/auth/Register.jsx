@@ -10,6 +10,12 @@ function Signup({ openLoginModal, closeModal }) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (!userName || !email || !password) {
+      toast.error("All fields must be filled.");
+      return;
+    }
+
     console.log("Registeration completed");
     try {
       const response = await fetch(
@@ -28,7 +34,7 @@ function Signup({ openLoginModal, closeModal }) {
           }),
         }
       );
-
+      // console.log("response", response);
       if (response.ok) {
         const data = await response.json();
         // Store user data in localStorage
@@ -41,7 +47,7 @@ function Signup({ openLoginModal, closeModal }) {
       } else {
         // Handle registration errors
         console.error("Registration failed");
-        toast.error("Already Registered.Please Login");
+        toast.error("Wrong Input Format or Already Registered");
       }
     } catch (error) {
       console.error("Error during registration", error);
