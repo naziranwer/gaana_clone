@@ -159,7 +159,7 @@ const Subscription = () => {
     navigate("/payment", { state: selectedDuration });
   };
 
-  const storedDuration = localStorage.getItem(`${isLoggedIn.data.email}`);
+  const storedDuration = localStorage.getItem(`${isLoggedIn?.data?.email}`);
 
   return (
     <Box

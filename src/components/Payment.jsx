@@ -81,7 +81,7 @@ const PaymentForm = () => {
           navigate("/");
         }, 4000);
       }, 10000);
-      localStorage.setItem(`${isLoggedIn.data.email}`, selectedDuration);
+      localStorage.setItem(`${isLoggedIn?.data?.email}`, selectedDuration);
     }
   };
 
@@ -97,7 +97,7 @@ const PaymentForm = () => {
           navigate("/");
         }, 4000);
       }, 10000);
-      localStorage.setItem(`${isLoggedIn.data.email}`, selectedDuration);
+      localStorage.setItem(`${isLoggedIn?.data?.email}`, selectedDuration);
     }
   };
 

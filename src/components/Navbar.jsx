@@ -31,7 +31,9 @@ const NavBar = ({ toggleDarkMode }) => {
   const navigate = useNavigate();
 
   const isLoggedIn = JSON.parse(localStorage.getItem("user"));
-  const subscriptionDuration = localStorage.getItem(`${isLoggedIn.data.email}`);
+  const subscriptionDuration = localStorage.getItem(
+    `${isLoggedIn?.data?.email}`
+  );
 
   console.log("islooged stats", isLoggedIn);
 
