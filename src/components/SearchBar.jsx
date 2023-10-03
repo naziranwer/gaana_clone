@@ -114,7 +114,20 @@ const SearchBar = () => {
                 Recent Searches
               </div>
             )}
-            <SearchMusicCard data={SearchedSongs} />
+            {SearchedSongs.length > 0 ? (
+              <SearchMusicCard data={SearchedSongs} />
+            ) : (
+              <div
+                style={{
+                  color: "red",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                Searched Item not matched
+              </div>
+            )}
           </SearchResultsBox>
         )}
       </SearchContainer>
