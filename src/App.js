@@ -111,7 +111,8 @@ function App() {
   const musicList = musicData.data || [];
   console.log("this is array data in app.js", musicList);
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const storedDarkMode = localStorage.getItem("darkMode");
+  const [isDarkMode, setIsDarkMode] = useState(storedDarkMode === "true");
 
   {
     musicList.length > 0 && dispatch(setOneSongData(musicList[0]));
@@ -120,6 +121,7 @@ function App() {
   const toggleDarkMode = () => {
     console.log("Toggle the dark mode", isDarkMode);
     setIsDarkMode(!isDarkMode);
+    localStorage.setItem("darkMode", !isDarkMode);
   };
 
   const theme = createTheme({
