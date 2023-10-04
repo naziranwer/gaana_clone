@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import subscriptionImage from "./assets/subscription.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Checkbox, FormControlLabel, Box } from "@mui/material";
@@ -8,6 +8,12 @@ const Subscription = () => {
   const [selectedDuration, setSelectedDuration] = useState(null);
   const isLoggedIn = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn, navigate]);
 
   const handleDurationChange = (duration) => {
     setSelectedDuration(duration);

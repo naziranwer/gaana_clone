@@ -39,6 +39,7 @@ import FavWithoutLogin from "./components/withoutLogin/Fav";
 import NotFound from "./components/NotFound";
 import Subscription from "./components/Subscription";
 import PaymentPage from "./components/Payment";
+import ComingSoonPage from "./components/ComingSoon";
 
 function App() {
   const dispatch = useDispatch();
@@ -164,6 +165,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/subscription" element={<Subscription />} />
               <Route path="/payment" element={<PaymentPage />} />
+              <Route path="/coming" element={<ComingSoonPage />} />
             </Routes>
           </Container>
         </BrowserRouter>

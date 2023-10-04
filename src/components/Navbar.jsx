@@ -92,6 +92,11 @@ const NavBar = ({ toggleDarkMode }) => {
     window.location.href = "/";
   };
 
+  const handleMenuComing = () => {
+    navigate("/coming");
+    setAnchorEl(null);
+  };
+
   console.log(
     "login Modal status",
     showLoginModal,
@@ -314,9 +319,9 @@ const NavBar = ({ toggleDarkMode }) => {
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
           >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Languages</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
+            <MenuItem onClick={handleMenuComing}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuComing}>Languages</MenuItem>
+            <MenuItem onClick={handleMenuComing}>Settings</MenuItem>
             <MenuItem onClick={handleLogout}>Log Out</MenuItem>
             <MenuItem onClick={toggleDarkMode}>Night Mode</MenuItem>
           </Menu>
