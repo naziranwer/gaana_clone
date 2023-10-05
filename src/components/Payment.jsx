@@ -69,12 +69,13 @@ const PaymentForm = () => {
 
   console.log("Selected Duration: ", selectedDuration);
 
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn, navigate]);
+
   const checkCardDetails = () => {
-    useEffect(() => {
-      if (!isLoggedIn) {
-        navigate("/");
-      }
-    }, [isLoggedIn, navigate]);
     // Your card payment logic here
     if (cardNumber && holderName && expiry && cvv) {
       // toast.success("Payment Successful you will be redirected to home page");
