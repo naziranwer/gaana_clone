@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Grid,
@@ -70,6 +70,11 @@ const PaymentForm = () => {
   console.log("Selected Duration: ", selectedDuration);
 
   const checkCardDetails = () => {
+    useEffect(() => {
+      if (!isLoggedIn) {
+        navigate("/");
+      }
+    }, [isLoggedIn, navigate]);
     // Your card payment logic here
     if (cardNumber && holderName && expiry && cvv) {
       // toast.success("Payment Successful you will be redirected to home page");
